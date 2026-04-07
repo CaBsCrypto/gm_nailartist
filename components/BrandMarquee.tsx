@@ -11,9 +11,6 @@ const BRAND_IMAGES = [
 ];
 
 export default function BrandMarquee() {
-    // Triplicamos para asegurar que el loop sea infinito sin cortes visuales en pantallas grandes
-    const marqueeImages = [...BRAND_IMAGES, ...BRAND_IMAGES, ...BRAND_IMAGES];
-
     return (
         <section className="py-16 bg-white overflow-hidden border-y border-gray-50">
             <div className="relative flex items-center">
@@ -21,10 +18,10 @@ export default function BrandMarquee() {
                 <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-                <div className="flex whitespace-nowrap animate-marquee">
-                    {marqueeImages.map((src, index) => (
+                <div className="flex w-fit animate-marquee">
+                    {BRAND_IMAGES.map((src, index) => (
                         <div 
-                            key={index} 
+                            key={`set1-${index}`} 
                             className="mx-4 flex-shrink-0 w-[260px] h-[320px] relative rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] group transition-all duration-500 hover:shadow-[0_20px_40px_rgba(255,105,180,0.15)]"
                         >
                             <Image
@@ -33,9 +30,24 @@ export default function BrandMarquee() {
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 sizes="260px"
-                                priority={index < 5}
+                                priority={index < 3}
                             />
-                            {/* Sutil overlay rosa al hacer hover */}
+                            <div className="absolute inset-0 bg-brand-pink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        </div>
+                    ))}
+                    {/* Duplicate set for seamless loop */}
+                    {BRAND_IMAGES.map((src, index) => (
+                        <div 
+                            key={`set2-${index}`} 
+                            className="mx-4 flex-shrink-0 w-[260px] h-[320px] relative rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] group transition-all duration-500 hover:shadow-[0_20px_40px_rgba(255,105,180,0.15)]"
+                        >
+                            <Image
+                                src={src}
+                                alt={`GM NailArtist Brand-dup ${index + 1}`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="260px"
+                            />
                             <div className="absolute inset-0 bg-brand-pink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                     ))}
