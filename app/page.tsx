@@ -20,11 +20,11 @@ export default function Home() {
             <Hero />
             <BrandMarquee />
             <Services />
-            <Testimonials />
             <Gallery />
             <StatsBar />
             <Instructor />
             <CorporateEvents />
+            <Testimonials />
             <Locations />
             <FAQ />
             <CTASection />
