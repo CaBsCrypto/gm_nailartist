@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { GALLERY_ITEMS, GALLERY_FILTERS, SERVICES } from '@/lib/constants';
 import { Service } from '@/lib/types';
@@ -10,7 +10,15 @@ import BookingModal from './BookingModal';
 
 export default function Gallery() {
     const [activeFilter, setActiveFilter] = useState('Todos');
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
     
+    // Dragging state
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
     // Modal States
     const [isBookingOpen, setIsBookingOpen] = useState(false);
     const [isServiceDetailOpen, setIsServiceDetailOpen] = useState(false);
@@ -22,10 +30,61 @@ export default function Gallery() {
         item => activeFilter === 'Todos' || item.category === activeFilter
     );
 
+    // Update scroll buttons state
+    const checkScroll = () => {
+        if (scrollContainerRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+            setCanScrollLeft(scrollLeft > 10);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        }
+    };
+
+    useEffect(() => {
+        checkScroll();
+        window.addEventListener('resize', checkScroll);
+        return () => window.removeEventListener('resize', checkScroll);
+    }, [filteredItems]);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollContainerRef.current) {
+            const scrollAmount = window.innerWidth > 768 ? 400 : 300;
+            scrollContainerRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // Mouse Drag Logic
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (!scrollContainerRef.current) return;
+        setIsDragging(true);
+        setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+        setScrollLeft(scrollContainerRef.current.scrollLeft);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging || !scrollContainerRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainerRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed
+        scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+        checkScroll();
+    };
+
     const handleItemClick = (category: string) => {
+        if (isDragging) return; // Don't open if dragging
         let serviceIndex = 0; // Manicure por defecto
-        if (category === 'Peluquería') serviceIndex = 5; // category-otros
-        if (category === 'Eventos') serviceIndex = 4; // category-empresas
+        if (category === 'Peluquería') serviceIndex = 5; 
+        if (category === 'Eventos') serviceIndex = 4; 
 
         setSelectedService(SERVICES[serviceIndex]);
         setIsServiceDetailOpen(true);
@@ -38,14 +97,14 @@ export default function Gallery() {
     };
 
     return (
-        <section id="galeria" className="py-24 bg-brand-light">
-            <div className="container mx-auto px-6 max-w-6xl">
+        <section id="galeria" className="py-24 bg-brand-light relative overflow-hidden">
+            <div className="container mx-auto px-6 max-w-6xl relative">
                 <FadeIn className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-heading font-black text-gray-900 mb-6">
                         Nuestra Galería
                     </h2>
                     <p className="text-lg font-body text-gray-600 max-w-2xl mx-auto mb-8">
-                        Explora el estilo y nivel de detalle de nuestros trabajos. Haz clic para ver servicios.
+                        Explora nuestro trabajo. Haz clic para ver servicios.
                     </p>
 
                     {/* Filters */}
@@ -65,49 +124,78 @@ export default function Gallery() {
                     </div>
                 </FadeIn>
 
-                {/* Modern Horizontal Carousel */}
-                <div 
-                    className="grid grid-rows-2 grid-flow-col gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 sm:mx-0 sm:px-0"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
-                    {/* Hack to hide scrollbar for webkit (Chrome/Safari) */}
-                    <style dangerouslySetInnerHTML={{__html: `
-                        #galeria .overflow-x-auto::-webkit-scrollbar {
-                            display: none;
-                        }
-                    `}} />
+                {/* Carousel Wrapper with custom Arrows */}
+                <div className="relative group/gallery">
+                    {/* Navigation Buttons (Desktop Only) */}
+                    {canScrollLeft && (
+                        <button 
+                            onClick={() => scroll('left')}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center text-gray-400 hover:text-brand-pink hover:scale-110 transition-all hidden md:flex"
+                            aria-label="Anterior"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                    )}
 
-                    {filteredItems.map((item, index) => {
-                        return (
+                    {canScrollRight && (
+                        <button 
+                            onClick={() => scroll('right')}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 flex items-center justify-center text-gray-400 hover:text-brand-pink hover:scale-110 transition-all hidden md:flex"
+                            aria-label="Siguiente"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    )}
+
+                    {/* Drag and Scroll Container */}
+                    <div 
+                        ref={scrollContainerRef}
+                        onMouseDown={handleMouseDown}
+                        onMouseLeave={handleMouseLeave}
+                        onMouseUp={handleMouseUp}
+                        onMouseMove={handleMouseMove}
+                        onScroll={checkScroll}
+                        className={`grid grid-rows-2 grid-flow-col gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 sm:mx-0 sm:px-0 select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab md:cursor-default'}`}
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        <style dangerouslySetInnerHTML={{__html: `
+                            #galeria .overflow-x-auto::-webkit-scrollbar { display: none; }
+                        `}} />
+
+                        {filteredItems.map((item, index) => (
                             <FadeIn 
                                 key={item.id} 
                                 delay={(index % 4) * 100} 
                                 direction="left" 
-                                className="w-[42vw] sm:w-[220px] md:w-[260px] h-[220px] sm:h-[250px] md:h-[280px] snap-center cursor-pointer"
+                                className="w-[70vw] sm:w-[220px] md:w-[260px] h-[220px] sm:h-[250px] md:h-[280px] snap-center"
                             >
                                 <div
                                     onClick={() => handleItemClick(item.category)}
-                                    className={`relative group rounded-2xl md:rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300 ${item.imagePlaceholderColor}`}
+                                    className={`relative group rounded-2xl md:rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300 ${item.imagePlaceholderColor} pointer-events-auto`}
                                 >
                                     <Image 
                                         src={item.image} 
                                         alt={item.title} 
                                         fill 
-                                        sizes="(max-width: 768px) 45vw, 260px"
+                                        draggable={false}
+                                        sizes="(max-width: 768px) 70vw, 260px"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105" 
                                         loading={index < 4 ? "eager" : "lazy"}
                                     />
                                     
-                                    {/* Subtle Overlay to indicate it's clickable */}
-                                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300 flex items-center justify-center">
-                                        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100">
-                                            <span className="text-xl">➔</span>
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100">
+                                            <span className="text-lg">➔</span>
                                         </div>
                                     </div>
                                 </div>
                             </FadeIn>
-                        );
-                    })}
+                        ))}
+                    </div>
                 </div>
 
                 {filteredItems.length === 0 && (
