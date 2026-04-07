@@ -42,19 +42,26 @@ export default function CorporateEvents() {
                         </a>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-4 pt-8">
-                            <div className="aspect-square bg-gradient-to-br from-brand-blue/20 to-brand-pink/20 rounded-3xl p-6 flex flex-col justify-end">
-                                <span className="text-3xl mb-2">🏢</span>
-                                <h4 className="font-heading font-bold text-gray-900">Empresas</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="space-y-4 pt-12">
+                            <div className="aspect-square bg-gradient-to-br from-brand-blue/20 to-brand-pink/20 rounded-3xl p-6 flex flex-col justify-end transition-transform hover:-translate-y-2 cursor-default border border-white/50 group shadow-sm hover:shadow-lg">
+                                <span className="text-3xl mb-2 transform transition-transform group-hover:scale-110">🏢</span>
+                                <h4 className="font-heading font-black text-gray-900 leading-tight">Empresas</h4>
                                 <p className="font-body text-sm text-gray-600">Pausas activas y beneficios</p>
                             </div>
                         </div>
-                        <div className="space-y-4">
-                            <div className="aspect-square bg-gradient-to-br from-brand-yellow/20 to-brand-green/20 rounded-3xl p-6 flex flex-col justify-end">
-                                <span className="text-3xl mb-2">🎈</span>
-                                <h4 className="font-heading font-bold text-gray-900">Cumpleaños</h4>
+                        <div className="space-y-4 pt-4">
+                            <div className="aspect-square bg-gradient-to-br from-brand-yellow/20 to-brand-green/20 rounded-3xl p-6 flex flex-col justify-end transition-transform hover:-translate-y-2 cursor-default border border-white/50 group shadow-sm hover:shadow-lg">
+                                <span className="text-3xl mb-2 transform transition-transform group-hover:scale-110">🎈</span>
+                                <h4 className="font-heading font-black text-gray-900 leading-tight">Cumpleaños</h4>
                                 <p className="font-body text-sm text-gray-600">Nail Parties privadas</p>
+                            </div>
+                        </div>
+                        <div className="space-y-4 pt-20">
+                            <div className="aspect-square bg-gradient-to-br from-brand-pink/20 to-brand-yellow/20 rounded-3xl p-6 flex flex-col justify-end transition-transform hover:-translate-y-2 cursor-default border border-white/50 group shadow-sm hover:shadow-lg">
+                                <span className="text-3xl mb-2 transform transition-transform group-hover:scale-110">🥂</span>
+                                <h4 className="font-heading font-black text-gray-900 leading-tight">Privados</h4>
+                                <p className="font-body text-sm text-gray-600">Coffee breaks & talleres</p>
                             </div>
                         </div>
                     </div>

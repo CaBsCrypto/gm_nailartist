@@ -8,7 +8,7 @@ export default function CTASection() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="relative py-24 bg-white overflow-hidden">
+        <section className="relative py-24 pb-32 md:pb-24 bg-white overflow-hidden">
             {/* Decorative Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-pink/5 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-brand-blue/5 via-transparent to-transparent pointer-events-none" />

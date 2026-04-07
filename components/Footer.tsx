@@ -4,14 +4,15 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
+        <footer className="bg-white border-t border-gray-100 pt-16 pb-24 md:pb-12">
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
 
                     {/* Brand */}
                     <div className="md:col-span-2">
-                        <a href="#" className="font-heading font-black text-3xl text-brand-blue tracking-tight block mb-4">
-                            gm_nailartist
+                        <a href="#" className="font-heading font-black text-3xl text-gray-900 tracking-tight block mb-4 flex items-center gap-1">
+                            <span className="text-brand-blue">gm</span>
+                            <span>_nailartist</span>
                         </a>
                         <p className="font-body text-gray-600 max-w-sm mb-6">
                             "Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Las Torres 📍 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽"
@@ -21,7 +22,7 @@ export default function Footer() {
                                 href="https://instagram.com/gm_nailartist"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors"
+                                className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 hover:bg-amber-500 hover:text-white transition-colors shadow-sm"
                                 aria-label="Instagram"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -32,7 +33,7 @@ export default function Footer() {
                                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-colors"
+                                className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 hover:bg-green-500 hover:text-white transition-colors shadow-sm"
                                 aria-label="WhatsApp"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -46,10 +47,10 @@ export default function Footer() {
                     <div>
                         <h4 className="font-heading font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm">Navegación</h4>
                         <ul className="space-y-3 font-body">
-                            <li><a href="#servicios" className="text-gray-600 hover:text-brand-pink transition-colors">Servicios</a></li>
-                            <li><a href="#galeria" className="text-gray-600 hover:text-brand-pink transition-colors">Galería</a></li>
-                            <li><a href="#instructora" className="text-gray-600 hover:text-brand-pink transition-colors">Instructora</a></li>
-                            <li><a href="#ubicaciones" className="text-gray-600 hover:text-brand-pink transition-colors">Ubicaciones</a></li>
+                            <li><a href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">Servicios</a></li>
+                            <li><a href="#galeria" className="text-gray-600 hover:text-amber-600 transition-colors">Galería</a></li>
+                            <li><a href="#instructora" className="text-gray-600 hover:text-amber-600 transition-colors">Instructora</a></li>
+                            <li><a href="#ubicaciones" className="text-gray-600 hover:text-amber-600 transition-colors">Ubicaciones</a></li>
                         </ul>
                     </div>
 
@@ -59,8 +60,8 @@ export default function Footer() {
                         <ul className="space-y-3 font-body">
                             <li className="text-gray-600">📍 Metro Las Torres</li>
                             <li className="text-gray-600">📍 Metro Ñuñoa / Chile España</li>
-                            <li className="text-gray-600 block mt-2 text-sm text-brand-green font-bold flex items-center gap-1">
-                                <span>🐇</span> 100% Cruelty Free
+                            <li className="text-gray-600 block mt-2 text-sm text-blue-600 font-bold flex items-center gap-1">
+                                <span>🕊️</span> 100% Cruelty Free
                             </li>
                         </ul>
                     </div>
@@ -69,7 +70,7 @@ export default function Footer() {
                 <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-sm font-body text-gray-400">
                     <p>© {currentYear} gm_nailartist. Todos los derechos reservados.</p>
                     <p className="mt-2 md:mt-0 flex items-center gap-1">
-                        Hecho con <span className="text-brand-pink">♥</span> en Santiago, Chile
+                        Hecho con <span className="text-amber-500">♥</span> en Santiago, Chile
                     </p>
                 </div>
             </div>

@@ -2,15 +2,18 @@ import FadeIn from './FadeIn';
 
 export default function StatsBar() {
     const stats = [
-        { label: 'Clientas Felices', value: '+500' },
-        { label: 'Diseños Únicos', value: '+200' },
+        { label: 'Clientas', value: '+300' },
+        { label: 'Diseños Únicos', value: '100+' },
         { label: 'Rating Promedio', value: '5.0 ⭐' },
-        { label: 'Locales Oficiales', value: '2' },
+        { label: 'Años de Experiencia', value: '8+' },
     ];
 
     return (
-        <section className="bg-brand-blue py-12 md:py-16">
-            <div className="container mx-auto px-6 max-w-6xl">
+        <section className="bg-brand-blue py-12 md:py-16 relative overflow-hidden">
+            {/* Subtle glow */}
+            <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
+            
+            <div className="container mx-auto px-6 max-w-6xl relative z-10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
                     {stats.map((stat, i) => (
                         <FadeIn key={stat.label} delay={i * 100} direction="up">

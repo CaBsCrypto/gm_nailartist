@@ -31,8 +31,9 @@ export default function Navbar() {
                     }`}
             >
                 <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
-                    <a href="#" className="font-heading font-black text-2xl text-brand-blue tracking-tight">
-                        GM NailArtist
+                    <a href="#" className="font-heading font-black text-2xl text-gray-900 tracking-tight flex items-center gap-2">
+                        <span className="text-brand-blue">GM</span>
+                        <span>NailArtist</span>
                     </a>
 
                     {/* Desktop Nav */}
@@ -42,7 +43,7 @@ export default function Navbar() {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="font-body font-bold text-gray-600 hover:text-brand-pink transition-colors"
+                                        className="font-body font-bold text-gray-600 hover:text-amber-600 transition-colors"
                                     >
                                         {link.name}
                                     </a>
@@ -51,15 +52,18 @@ export default function Navbar() {
                         </ul>
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="btn-primary py-2.5 text-sm"
+                            className="btn-primary py-2.5 px-6 text-sm"
                         >
-                            📅 Agenda tu hora
+                            <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Agenda tu hora</span>
                         </button>
                     </nav>
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden text-brand-blue p-2"
+                        className="md:hidden text-amber-600 p-2"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -86,7 +90,7 @@ export default function Navbar() {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="block py-3 font-body font-bold text-gray-800 border-b border-gray-100"
+                                        className="block py-3 font-body font-bold text-gray-800 border-b border-gray-100 hover:text-amber-600 transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {link.name}
@@ -99,9 +103,12 @@ export default function Navbar() {
                                         setIsMobileMenuOpen(false);
                                         setIsModalOpen(true);
                                     }}
-                                    className="btn-primary w-full"
+                                    className="btn-primary w-full py-4"
                                 >
-                                    📅 Agenda tu hora
+                                    <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Agenda tu hora</span>
                                 </button>
                             </li>
                         </ul>

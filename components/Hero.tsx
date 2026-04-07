@@ -2,10 +2,37 @@
 
 import { useState } from 'react';
 import BookingModal from './BookingModal';
+import ServiceDetailModal from './ServiceDetailModal';
 import FadeIn from './FadeIn';
+import { Service } from '@/lib/types';
+import { SERVICES } from '@/lib/constants';
 
 export default function Hero() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
+    const [isServiceDetailOpen, setIsServiceDetailOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState<Service | null>(null);
+    const [preSelectedServiceId, setPreSelectedServiceId] = useState<string | undefined>(undefined);
+    const [preSelectedSubService, setPreSelectedSubService] = useState<string | undefined>(undefined);
+
+    const openServiceDetail = (service: Service) => {
+        setSelectedService(service);
+        setIsServiceDetailOpen(true);
+    };
+
+    const handleBookingFromService = (serviceId: string, subServiceName?: string) => {
+        setPreSelectedServiceId(serviceId);
+        setPreSelectedSubService(subServiceName);
+        setIsBookingOpen(true);
+    };
+
+    const gradients = {
+        pink: 'from-brand-pink to-rose-400',
+        yellow: 'from-brand-yellow to-orange-300',
+        blue: 'from-brand-blue to-purple-500',
+        green: 'from-brand-green to-emerald-400',
+        purple: 'from-purple-500 to-indigo-600',
+        orange: 'from-orange-400 to-red-500'
+    };
 
     return (
         <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-brand-light">
@@ -36,50 +63,140 @@ export default function Hero() {
 
                         <div className="flex flex-wrap items-center gap-4">
                             <button
-                                onClick={() => setIsModalOpen(true)}
-                                className="btn-primary text-lg"
+                                onClick={() => {
+                                    setPreSelectedServiceId(undefined);
+                                    setPreSelectedSubService(undefined);
+                                    setIsBookingOpen(true);
+                                }}
+                                className="btn-primary px-8 py-4 text-lg"
                             >
-                                📅 Agenda tu hora
+                                <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>Agenda tu hora</span>
                             </button>
-                            <a href="#galeria" className="btn-secondary text-lg">
-                                Ver galería &rarr;
+                            <a href="#servicios" className="btn-secondary px-8 py-4 text-lg">
+                                Ver destacados &rarr;
                             </a>
                         </div>
                     </FadeIn>
 
-                    {/* Right Visual Grid */}
+                    {/* Right Visual Grid (Category Mosaic) */}
                     <FadeIn delay={300} direction="left" className="relative">
                         {/* Floating Badges */}
-                        <div className="absolute -left-8 top-1/4 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 flex items-center gap-3">
+                        <div className="absolute -left-8 top-1/4 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 flex items-center gap-3 border-amber-200 shadow-amber-900/10">
                             <span className="text-2xl">⭐</span>
                             <div>
-                                <p className="font-heading font-black text-brand-blue leading-none">+500</p>
-                                <p className="font-body text-xs text-gray-500 font-bold">Clientas felices</p>
+                                <p className="font-heading font-black text-amber-600 leading-none">+300</p>
+                                <p className="font-body text-xs text-gray-500 font-bold">Clientas</p>
                             </div>
                         </div>
 
-                        <div className="absolute -right-4 bottom-1/4 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 shadow-xl" style={{ animationDelay: '1.5s' }}>
+                        <div className="absolute -right-4 bottom-10 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 shadow-xl" style={{ animationDelay: '1.5s' }}>
                             <p className="font-body font-bold text-brand-green flex items-center gap-2">
                                 <span>🐇</span> 100% Cruelty-Free
                             </p>
                         </div>
 
-                        {/* Nail Art Moodboard Grid */}
-                        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto lg:mx-0 lg:ml-auto">
-                            <div className="space-y-4 pt-12">
-                                <div className="w-full aspect-[3/4] rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br from-brand-pink to-rose-400 overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2">
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm">Cromo</div>
+                        {/* Mosaic Grid */}
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0 lg:ml-auto">
+                            <div className="space-y-3 sm:gap-4 pt-12">
+                                {/* Manicure */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[0])}
+                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.pink} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[0].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[0].name}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="w-full aspect-square rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br from-brand-yellow to-orange-300 overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2">
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm">Nail Art</div>
+
+                                {/* Pedicure */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[1])}
+                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.yellow} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[1].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[1].name}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Retiro */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[2])}
+                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.blue} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[2].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[2].name}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="space-y-4">
-                                <div className="w-full aspect-square rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br from-brand-blue to-purple-500 overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2">
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm">Acrílicas</div>
+
+                            <div className="space-y-3 sm:gap-4">
+                                {/* Clases */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[3])}
+                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.green} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[3].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[3].name}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="w-full aspect-[3/4] rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br from-brand-green to-emerald-400 overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2">
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm">Gel</div>
+
+                                {/* Empresas */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[4])}
+                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.purple} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[4].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[4].name}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Otros */}
+                                <div 
+                                    onClick={() => openServiceDetail(SERVICES[5])}
+                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.orange} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                >
+                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                        <span className="text-3xl mb-2">{SERVICES[5].icon}</span>
+                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
+                                    </div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center group-hover:opacity-0 transition-opacity px-2">
+                                        <span className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-bold border border-white/30 uppercase tracking-widest block truncate">
+                                            {SERVICES[5].name}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +204,19 @@ export default function Hero() {
                 </div>
             </div>
 
-            <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <BookingModal 
+                isOpen={isBookingOpen} 
+                onClose={() => setIsBookingOpen(false)} 
+                initialServiceId={preSelectedServiceId}
+                initialSubServiceName={preSelectedSubService}
+            />
+
+            <ServiceDetailModal 
+                isOpen={isServiceDetailOpen} 
+                onClose={() => setIsServiceDetailOpen(false)} 
+                service={selectedService}
+                onBooking={handleBookingFromService}
+            />
         </section>
     );
 }

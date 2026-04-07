@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { GALLERY_ITEMS, GALLERY_FILTERS } from '@/lib/constants';
 import FadeIn from './FadeIn';
 
@@ -19,7 +20,7 @@ export default function Gallery() {
                         Nuestra Galería
                     </h2>
                     <p className="text-lg font-body text-gray-600 max-w-2xl mx-auto mb-8">
-                        Explora el estilo y nivel de detalle de nuestros trabajos. (Pronto actualizaremos con nuestras mejores fotos).
+                        Explora el estilo y nivel de detalle de nuestros trabajos.
                     </p>
 
                     {/* Filters */}
@@ -40,31 +41,30 @@ export default function Gallery() {
                 </FadeIn>
 
                 {/* Masonry / Asymmetric Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[250px] gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px] gap-4">
                     {filteredItems.map((item, index) => {
-                        // Make the first item take up more space for asymmetry
-                        const isFeatured = index === 0;
+                        // Create an interesting dynamic pattern for the masonry grid
+                        const isLarge = index === 0 || index === 7 || index === 14 || index === 21;
+                        const isTall = index === 2 || index === 9 || index === 16 || index === 23;
+                        const isWide = index === 4 || index === 11 || index === 18 || index === 25;
+
+                        let spanClass = '';
+                        if (isLarge) spanClass = 'col-span-2 row-span-2';
+                        else if (isTall) spanClass = 'row-span-2';
+                        else if (isWide) spanClass = 'col-span-2';
+
                         return (
-                            <FadeIn key={item.id} delay={index * 100} direction="up" className={`${isFeatured ? 'col-span-2 row-span-2' : ''}`}>
+                            <FadeIn key={item.id} delay={(index % 8) * 100} direction="up" className={spanClass}>
                                 <div
                                     className={`relative group rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br h-full w-full ${item.imagePlaceholderColor}`}
                                 >
-                                    {/* 
-                                        TODO PARA EL USUARIO:
-                                        Cuando tengas las fotos reales de tus trabajos, debes borrar el div "absolute inset-0..." de abajo 
-                                        y descomentar o reemplazar por el componente <Image /> de Next.js, de la siguiente manera:
-                                        
-                                        <Image 
-                                            src={`/images/gallery/tu-foto-${item.id}.jpg`} // Guarda las fotos en la carpeta public/images/gallery/
-                                            alt={item.title} 
-                                            fill 
-                                            className="object-cover" 
-                                        /> 
-                                    */}
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white/60 font-bold font-body text-center p-4">
-                                        <span className="text-2xl mb-2">📸</span>
-                                        <span>Espacio reservado para:<br />{item.title}</span>
-                                    </div>
+                                    <Image 
+                                        src={item.image} 
+                                        alt={item.title} 
+                                        fill 
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                                    />
 
                                     {/* Overlay on hover */}
                                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center backdrop-blur-sm">

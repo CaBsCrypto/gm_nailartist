@@ -34,17 +34,19 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-white bg-brand-blue rounded-full transition-all hover:bg-brand-blue/90 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-blue/30 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-  
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-brand-blue border-2 border-brand-blue rounded-full transition-all hover:bg-brand-blue/5 hover:-translate-y-1 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-  
-  .btn-whatsapp {
-    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-bold text-white bg-brand-green rounded-full transition-all hover:bg-brand-green/90 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-green/30 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed;
-  }
+    /* Botón Azul & Oro */
+    .btn-primary {
+        @apply bg-brand-blue text-amber-400 font-heading font-black rounded-full transition-all duration-500 flex items-center justify-center gap-2 border-2 border-amber-400/20 shadow-[0_4px_20px_-5px_rgba(0,0,255,0.3)] hover:scale-105 active:scale-95 disabled:opacity-50;
+    }
+
+    .btn-secondary {
+        @apply bg-white text-amber-600 font-heading font-black rounded-full transition-all duration-500 flex items-center justify-center gap-2 border-2 border-amber-600/10 hover:bg-amber-50 hover:border-amber-600/30 hover:scale-105 active:scale-95 shadow-sm;
+    }
+
+    /* Botón WhatsApp */
+    .btn-whatsapp {
+        @apply bg-[#25D366] text-white font-heading font-black rounded-full transition-all duration-300 flex items-center justify-center gap-2 hover:bg-[#128C7E] hover:shadow-xl shadow-[0_8px_20px_-5px_rgba(37,211,102,0.4)];
+    }
 
   .glass-card {
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
