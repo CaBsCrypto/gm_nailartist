@@ -198,8 +198,8 @@ const manicureColors = ['from-brand-pink to-rose-400', 'from-pink-300 to-brand-p
 const peluqueriaColors = ['from-brand-blue to-purple-500', 'from-sky-400 to-brand-blue', 'from-indigo-400 to-purple-600'];
 const eventosColors = ['from-brand-yellow to-orange-400', 'from-orange-300 to-amber-500'];
 
-const arrManicure = generateGalleryItems('Manicure', 'manicure', 8, manicureColors);
-const arrPeluqueria = generateGalleryItems('Peluquería', 'peluqueria', 16, peluqueriaColors);
+const arrManicure = generateGalleryItems('Manicure', 'manicure', 16, manicureColors);
+const arrPeluqueria = generateGalleryItems('Peluquería', 'peluqueria', 8, peluqueriaColors);
 const arrEventos = generateGalleryItems('Eventos', 'eventos', 2, eventosColors);
 
 // Interleave items so "Todos" shows a nice mixed variety by default
