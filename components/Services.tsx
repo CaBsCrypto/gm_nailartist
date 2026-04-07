@@ -49,7 +49,7 @@ export default function Services() {
                                     
                                     <div className="flex justify-between items-start mb-6">
                                         <div className="relative">
-                                            <span className="text-5xl drop-shadow-sm filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 block">
+                                            <span className="text-5xl drop-shadow-sm transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 block">
                                                 {service.icon}
                                             </span>
                                             <div className={`absolute -bottom-2 -right-2 w-6 h-6 rounded-full border-2 border-white ${style.text.replace('text-', 'bg-')} animate-pulse opacity-0 group-hover:opacity-100 transition-opacity`} />
