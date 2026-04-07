@@ -7,7 +7,6 @@ import Gallery from '@/components/Gallery';
 import Testimonials from '@/components/Testimonials';
 import Instructor from '@/components/Instructor';
 import CorporateEvents from '@/components/CorporateEvents';
-import Locations from '@/components/Locations';
 import FAQ from '@/components/FAQ';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
@@ -25,7 +24,6 @@ export default function Home() {
             <Instructor />
             <CorporateEvents />
             <Testimonials />
-            <Locations />
             <FAQ />
             <CTASection />
             <Footer />

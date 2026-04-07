@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import BookingModal from './BookingModal';
+import LocationsModal from './LocationsModal';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLocationsOpen, setIsLocationsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,7 +23,7 @@ export default function Navbar() {
         { name: 'Galería', href: '#galeria' },
         { name: 'Instructora', href: '#instructora' },
         { name: 'Eventos', href: '#eventos' },
-        { name: 'Ubicaciones', href: '#ubicaciones' },
+        { name: 'Sedes', action: () => setIsLocationsOpen(true) },
     ];
 
     return (
@@ -41,12 +43,21 @@ export default function Navbar() {
                         <ul className="flex items-center gap-6">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
-                                        href={link.href}
-                                        className="font-body font-bold text-gray-600 hover:text-amber-600 transition-colors"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.href ? (
+                                        <a
+                                            href={link.href}
+                                            className="font-body font-bold text-gray-600 hover:text-amber-600 transition-colors"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ) : (
+                                        <button
+                                            onClick={link.action}
+                                            className="font-body font-bold text-gray-600 hover:text-amber-600 transition-colors"
+                                        >
+                                            {link.name}
+                                        </button>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -88,13 +99,25 @@ export default function Navbar() {
                         <ul className="flex flex-col py-4 px-6">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
-                                        href={link.href}
-                                        className="block py-3 font-body font-bold text-gray-800 border-b border-gray-100 hover:text-amber-600 transition-colors"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.href ? (
+                                        <a
+                                            href={link.href}
+                                            className="block py-3 font-body font-bold text-gray-800 border-b border-gray-100 hover:text-amber-600 transition-colors"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ) : (
+                                        <button
+                                            onClick={() => {
+                                                setIsMobileMenuOpen(false);
+                                                link.action?.();
+                                            }}
+                                            className="w-full text-left py-3 font-body font-bold text-gray-800 border-b border-gray-100 hover:text-amber-600 transition-colors"
+                                        >
+                                            {link.name}
+                                        </button>
+                                    )}
                                 </li>
                             ))}
                             <li className="pt-6 pb-2">
@@ -117,6 +140,7 @@ export default function Navbar() {
             </header>
 
             <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <LocationsModal isOpen={isLocationsOpen} onClose={() => setIsLocationsOpen(false)} />
         </>
     );
 }

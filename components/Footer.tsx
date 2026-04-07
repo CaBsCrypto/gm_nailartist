@@ -1,7 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import { WHATSAPP_NUMBER } from '@/lib/constants';
+import LocationsModal from './LocationsModal';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [isLocationsOpen, setIsLocationsOpen] = useState(false);
 
     return (
         <footer className="bg-white border-t border-gray-100 pt-16 pb-24 md:pb-12">
@@ -50,18 +55,20 @@ export default function Footer() {
                             <li><a href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">Servicios</a></li>
                             <li><a href="#galeria" className="text-gray-600 hover:text-amber-600 transition-colors">Galería</a></li>
                             <li><a href="#instructora" className="text-gray-600 hover:text-amber-600 transition-colors">Instructora</a></li>
-                            <li><a href="#ubicaciones" className="text-gray-600 hover:text-amber-600 transition-colors">Ubicaciones</a></li>
+                            <li><button onClick={() => setIsLocationsOpen(true)} className="text-gray-600 hover:text-amber-600 transition-colors">Sedes</button></li>
                         </ul>
                     </div>
 
                     {/* Contacto */}
                     <div>
-                        <h4 className="font-heading font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                        <h4 className="font-heading font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm">Sedes</h4>
                         <ul className="space-y-3 font-body">
                             <li className="text-gray-600">📍 Metro Las Torres</li>
                             <li className="text-gray-600">📍 Metro Ñuñoa / Chile España</li>
-                            <li className="text-gray-600 block mt-2 text-sm text-blue-600 font-bold flex items-center gap-1">
-                                <span>🕊️</span> 100% Cruelty Free
+                            <li>
+                                <button onClick={() => setIsLocationsOpen(true)} className="text-brand-pink text-xs font-bold uppercase tracking-widest mt-2 hover:underline">
+                                    Ver Detalles de Sedes →
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -74,6 +81,8 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
+
+            <LocationsModal isOpen={isLocationsOpen} onClose={() => setIsLocationsOpen(false)} />
         </footer>
     );
 }
