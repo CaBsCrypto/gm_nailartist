@@ -2,15 +2,40 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { GALLERY_ITEMS, GALLERY_FILTERS } from '@/lib/constants';
+import { GALLERY_ITEMS, GALLERY_FILTERS, SERVICES } from '@/lib/constants';
+import { Service } from '@/lib/types';
 import FadeIn from './FadeIn';
+import ServiceDetailModal from './ServiceDetailModal';
+import BookingModal from './BookingModal';
 
 export default function Gallery() {
     const [activeFilter, setActiveFilter] = useState('Todos');
+    
+    // Modal States
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
+    const [isServiceDetailOpen, setIsServiceDetailOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState<Service | null>(null);
+    const [preSelectedServiceId, setPreSelectedServiceId] = useState<string | undefined>(undefined);
+    const [preSelectedSubService, setPreSelectedSubService] = useState<string | undefined>(undefined);
 
     const filteredItems = GALLERY_ITEMS.filter(
         item => activeFilter === 'Todos' || item.category === activeFilter
     );
+
+    const handleItemClick = (category: string) => {
+        let serviceIndex = 0; // Manicure por defecto
+        if (category === 'Peluquería') serviceIndex = 5; // category-otros
+        if (category === 'Eventos') serviceIndex = 4; // category-empresas
+
+        setSelectedService(SERVICES[serviceIndex]);
+        setIsServiceDetailOpen(true);
+    };
+
+    const handleBookingFromService = (serviceId: string, subServiceName?: string) => {
+        setPreSelectedServiceId(serviceId);
+        setPreSelectedSubService(subServiceName);
+        setIsBookingOpen(true);
+    };
 
     return (
         <section id="galeria" className="py-24 bg-brand-light">
@@ -20,7 +45,7 @@ export default function Gallery() {
                         Nuestra Galería
                     </h2>
                     <p className="text-lg font-body text-gray-600 max-w-2xl mx-auto mb-8">
-                        Explora el estilo y nivel de detalle de nuestros trabajos.
+                        Explora el estilo y nivel de detalle de nuestros trabajos. Haz clic para ver servicios.
                     </p>
 
                     {/* Filters */}
@@ -40,40 +65,44 @@ export default function Gallery() {
                     </div>
                 </FadeIn>
 
-                {/* Masonry / Asymmetric Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px] gap-4">
+                {/* Modern Horizontal Carousel */}
+                <div 
+                    className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 sm:mx-0 sm:px-0"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                    {/* Hack to hide scrollbar for webkit (Chrome/Safari) */}
+                    <style dangerouslySetInnerHTML={{__html: `
+                        #galeria .overflow-x-auto::-webkit-scrollbar {
+                            display: none;
+                        }
+                    `}} />
+
                     {filteredItems.map((item, index) => {
-                        // Create an interesting dynamic pattern for the masonry grid
-                        const isLarge = index === 0 || index === 7 || index === 14 || index === 21;
-                        const isTall = index === 2 || index === 9 || index === 16 || index === 23;
-                        const isWide = index === 4 || index === 11 || index === 18 || index === 25;
-
-                        let spanClass = '';
-                        if (isLarge) spanClass = 'col-span-2 row-span-2';
-                        else if (isTall) spanClass = 'row-span-2';
-                        else if (isWide) spanClass = 'col-span-2';
-
                         return (
-                            <FadeIn key={item.id} delay={(index % 8) * 100} direction="up" className={spanClass}>
+                            <FadeIn 
+                                key={item.id} 
+                                delay={(index % 4) * 100} 
+                                direction="left" 
+                                className="w-[85vw] sm:w-[300px] md:w-[350px] h-[350px] md:h-[350px] snap-center cursor-pointer"
+                            >
                                 <div
-                                    className={`relative group rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br h-full w-full ${item.imagePlaceholderColor}`}
+                                    onClick={() => handleItemClick(item.category)}
+                                    className={`relative group rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300 ${item.imagePlaceholderColor}`}
                                 >
                                     <Image 
                                         src={item.image} 
                                         alt={item.title} 
                                         fill 
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                                        sizes="(max-width: 768px) 85vw, 350px"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                                        loading={index < 4 ? "eager" : "lazy"}
                                     />
-
-                                    {/* Overlay on hover */}
-                                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                                        <span className="text-white font-heading font-black text-xl md:text-2xl mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-center px-4">
-                                            {item.title}
-                                        </span>
-                                        <span className="text-brand-pink font-body font-bold text-sm tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                            {item.category}
-                                        </span>
+                                    
+                                    {/* Subtle Overlay to indicate it's clickable */}
+                                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300 flex items-center justify-center">
+                                        <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100">
+                                            <span className="text-xl">➔</span>
+                                        </div>
                                     </div>
                                 </div>
                             </FadeIn>
@@ -87,6 +116,21 @@ export default function Gallery() {
                     </div>
                 )}
             </div>
+
+            <BookingModal 
+                isOpen={isBookingOpen} 
+                onClose={() => setIsBookingOpen(false)} 
+                initialServiceId={preSelectedServiceId}
+                initialSubServiceName={preSelectedSubService}
+            />
+
+            <ServiceDetailModal 
+                isOpen={isServiceDetailOpen} 
+                onClose={() => setIsServiceDetailOpen(false)} 
+                service={selectedService}
+                onBooking={handleBookingFromService}
+            />
         </section>
     );
 }
+
