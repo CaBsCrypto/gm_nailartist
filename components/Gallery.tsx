@@ -67,7 +67,7 @@ export default function Gallery() {
 
                 {/* Modern Horizontal Carousel */}
                 <div 
-                    className="grid grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 sm:mx-0 sm:px-0"
+                    className="grid grid-rows-2 grid-flow-col gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 sm:mx-0 sm:px-0"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {/* Hack to hide scrollbar for webkit (Chrome/Safari) */}
@@ -83,17 +83,17 @@ export default function Gallery() {
                                 key={item.id} 
                                 delay={(index % 4) * 100} 
                                 direction="left" 
-                                className="w-[85vw] sm:w-[300px] md:w-[350px] h-[350px] md:h-[350px] snap-center cursor-pointer"
+                                className="w-[42vw] sm:w-[220px] md:w-[260px] h-[220px] sm:h-[250px] md:h-[280px] snap-center cursor-pointer"
                             >
                                 <div
                                     onClick={() => handleItemClick(item.category)}
-                                    className={`relative group rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300 ${item.imagePlaceholderColor}`}
+                                    className={`relative group rounded-2xl md:rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300 ${item.imagePlaceholderColor}`}
                                 >
                                     <Image 
                                         src={item.image} 
                                         alt={item.title} 
                                         fill 
-                                        sizes="(max-width: 768px) 85vw, 350px"
+                                        sizes="(max-width: 768px) 45vw, 260px"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105" 
                                         loading={index < 4 ? "eager" : "lazy"}
                                     />
