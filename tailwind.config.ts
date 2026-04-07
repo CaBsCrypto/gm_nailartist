@@ -55,6 +55,11 @@ const config: Config = {
                     "0%": { transform: "translateX(-100%)" },
                     "100%": { transform: "translateX(0)" },
                 },
+                vibrantPulse: {
+                    "0%": { boxShadow: "0 0 0 0 rgba(112, 204, 58, 0.4)", transform: "scale(1)" },
+                    "70%": { boxShadow: "0 0 0 15px rgba(112, 204, 58, 0)", transform: "scale(1.05)" },
+                    "100%": { boxShadow: "0 0 0 0 rgba(112, 204, 58, 0)", transform: "scale(1)" },
+                },
             },
             animation: {
                 float: "float 3s ease-in-out infinite",
@@ -65,6 +70,7 @@ const config: Config = {
                 "pulse-slow": "pulse 2s ease-in-out infinite",
                 marquee: "marquee 60s linear infinite",
                 "marquee-reverse": "marquee-reverse 40s linear infinite",
+                "pulse-vibrant": "vibrantPulse 2s infinite",
             },
         },
     },
