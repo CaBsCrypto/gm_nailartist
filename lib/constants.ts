@@ -198,11 +198,21 @@ const manicureColors = ['from-brand-pink to-rose-400', 'from-pink-300 to-brand-p
 const peluqueriaColors = ['from-brand-blue to-purple-500', 'from-sky-400 to-brand-blue', 'from-indigo-400 to-purple-600'];
 const eventosColors = ['from-brand-yellow to-orange-400', 'from-orange-300 to-amber-500'];
 
-export const GALLERY_ITEMS: GalleryItem[] = [
-    ...generateGalleryItems('Manicure', 'manicure', 16, manicureColors),
-    ...generateGalleryItems('Peluquería', 'peluqueria', 8, peluqueriaColors),
-    ...generateGalleryItems('Eventos', 'eventos', 2, eventosColors),
-];
+const arrManicure = generateGalleryItems('Manicure', 'manicure', 8, manicureColors);
+const arrPeluqueria = generateGalleryItems('Peluquería', 'peluqueria', 16, peluqueriaColors);
+const arrEventos = generateGalleryItems('Eventos', 'eventos', 2, eventosColors);
+
+// Interleave items so "Todos" shows a nice mixed variety by default
+const interleaved: GalleryItem[] = [];
+const maxLength = Math.max(arrManicure.length, arrPeluqueria.length, arrEventos.length);
+
+for (let i = 0; i < maxLength; i++) {
+    if (i < arrManicure.length) interleaved.push(arrManicure[i]);
+    if (i < arrPeluqueria.length) interleaved.push(arrPeluqueria[i]);
+    if (i < arrEventos.length) interleaved.push(arrEventos[i]);
+}
+
+export const GALLERY_ITEMS: GalleryItem[] = interleaved;
 
 export const buildWhatsAppLink = (nombre: string, categoriaName: string, subServicioName: string, precioBase: number, tipoPago: string, modalidad: string, localOComuna: string, fecha: string, hora: string) => {
     let ubicacionTexto = '';
