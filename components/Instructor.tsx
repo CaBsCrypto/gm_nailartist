@@ -10,7 +10,7 @@ export default function Instructor() {
     const courses = [
         { title: '🎨 Nail Art Básico', desc: 'Fundamentos del diseño a mano alzada', color: 'text-amber-600', border: 'border-amber-200' },
         { title: '💎 Técnica Avanzada', desc: 'Pedrería, 3D y encapsulados', color: 'text-blue-600', border: 'border-blue-100' },
-        { title: '🧪 Gel & Acrílico', desc: 'Esculpido perfecto y nivelación', color: 'text-amber-600', border: 'border-amber-200' },
+        { title: '🛡️ Fortalecimiento', desc: 'Kapping, hard gel y poly gel', color: 'text-amber-600', border: 'border-amber-200' },
         { title: '🌿 Belleza Cruelty-Free', desc: 'Protocolos y productos éticos', color: 'text-blue-600', border: 'border-blue-100' },
     ];
 

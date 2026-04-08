@@ -6,14 +6,14 @@ export default function Testimonials() {
             id: 1,
             name: 'Camila Rojas',
             role: 'Clienta Frecuente',
-            text: '¡Las mejores uñas que me he hecho! El nivel de detalle en el Nail Art es impresionante y la atención es un 10/10. Mis uñas acrílicas duran intactas semanas.',
+            text: '¡Las mejores uñas que me he hecho! El nivel de detalle en el Nail Art es impresionante y la atención es un 10/10. Mis uñas con kapping duran intactas semanas.',
             rating: 5,
         },
         {
             id: 2,
             name: 'Valentina Soto',
             role: 'Alumna del Curso Básico',
-            text: 'Tomé el curso de nivelación y fue una experiencia increíble. La profesora es muy paciente, explica cada detalle y el ambiente es súper acogedor.',
+            text: 'Tomé el curso de manicure inicial y fue una experiencia increíble. La profesora es muy paciente, explica cada detalle y el ambiente es súper acogedor.',
             rating: 5,
         },
         {

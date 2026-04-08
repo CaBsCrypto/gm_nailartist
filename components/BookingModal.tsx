@@ -254,7 +254,7 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                         value={formData.local}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all text-gray-900 bg-white"
-                                        placeholder="Ej. Providencia, Las Condes..."
+                                        placeholder="Ej. Ñuñoa, Macul..."
                                     />
                                     <p className="text-xs text-amber-600 font-bold">
                                         * El servicio a domicilio tiene un recargo por movilización que se confirmará por WhatsApp.

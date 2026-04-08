@@ -38,7 +38,7 @@ const POLICIES = [
         span: 'md:col-span-1',
         gradient: 'from-amber-400 to-orange-500',
         items: [
-            'Abono del 20% para reservar.',
+            'Abono del 50% o 100% para reservar.',
             'Se descuenta del total final.',
             'Productos 100% Cruelty-Free.',
             'Domicilios aplicarán recargo.'
@@ -65,7 +65,7 @@ const FAQS = [
     },
     {
         question: '¿Tienen estacionamiento en sus sucursales?',
-        answer: 'Sí, tanto en la sede de Providencia como en Las Condes contamos con espacios de estacionamiento para nuestras clientas o zonas seguras muy cercanas.',
+        answer: 'Sí, tanto en la sede de Ñuñoa como en Macul contamos con espacios de estacionamiento para nuestras clientas o zonas seguras muy cercanas.',
     },
     {
         question: '¿Qué pasa si necesito reagendar mi cita?',

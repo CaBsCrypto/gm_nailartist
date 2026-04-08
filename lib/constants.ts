@@ -6,7 +6,7 @@ export const SERVICES: Service[] = [
     {
         id: 'category-manicure',
         name: 'Manicure',
-        description: 'Esmaltado permanente, nail art, acrílicas y más.',
+        description: 'Esmaltado permanente, nail art, fortalecimiento y más.',
         price: 'desde 10.000',
         numericPrice: 10000,
         icon: '💅',
@@ -22,9 +22,9 @@ export const SERVICES: Service[] = [
             { name: 'Esmaltado permanente full diseños', price: '22.000', numericPrice: 22000, duration: '2 horas' },
             { name: 'Soft gel o gelX', price: 'desde 26.000', numericPrice: 26000, duration: '3 horas' },
             { name: 'Agregar hard gel', price: '3.000', numericPrice: 3000, duration: '15 minutos', isAddon: true },
-            { name: 'Agregar kapping de acrilico', price: '5.000', numericPrice: 5000, duration: '20 minutos', isAddon: true },
+            { name: 'Agregar kapping de fortalecimiento', price: '5.000', numericPrice: 5000, duration: '20 minutos', isAddon: true },
             { name: 'Agregar baño de polygel', price: '7.000', numericPrice: 7000, duration: '20 minutos', isAddon: true },
-            { name: 'Agregar baño de acrilico', price: '7.000', numericPrice: 7000, duration: '20 minutos', isAddon: true },
+            { name: 'Agregar baño de fortalecedor', price: '7.000', numericPrice: 7000, duration: '20 minutos', isAddon: true },
             { name: 'Parche de gel', price: '2.500', numericPrice: 2500, duration: '15 minutos', isAddon: true },
         ]
     },
@@ -55,7 +55,7 @@ export const SERVICES: Service[] = [
             { name: 'Retiro de esmalte permanente', price: '3.000', numericPrice: 3000, duration: '20 minutos' },
             { name: 'Retiro de esmaltado con hard gel o kapping', price: '4.000', numericPrice: 4000, duration: '25 minutos' },
             { name: 'Retiro de soft gel', price: '8.000', numericPrice: 8000, duration: '40 minutos' },
-            { name: 'Retiro de acrilicas o polygel', price: '9.000', numericPrice: 9000, duration: '40 minutos' },
+            { name: 'Retiro de sistemas (hard gel/polygel)', price: '9.000', numericPrice: 9000, duration: '40 minutos' },
         ]
     },
     {
@@ -69,7 +69,7 @@ export const SERVICES: Service[] = [
         subServices: [
             { name: 'Esmaltado permanente basico', price: '50.000', numericPrice: 50000, duration: '5 horas' },
             { name: 'Esmaltado permanente tecnicas mixtas', price: '60.000', numericPrice: 60000, duration: '6 horas' },
-            { name: 'Uso y manejo de torno', price: '45.000', numericPrice: 45000, duration: '3 horas' },
+            { name: 'Manicure Inicial / Manejo de Torno', price: '45.000', numericPrice: 45000, duration: '3 horas' },
         ]
     },
     {
@@ -160,10 +160,10 @@ export const FEATURED_SERVICES = [
 
 export const LOCATIONS: Location[] = [
     {
-        id: 'las-torres',
-        name: 'Estudio Principal',
+        id: 'macul',
+        name: 'Sede Macul',
         metro: '📍 Metro Las Torres',
-        description: 'A pasos del metro. Espacio acogedor y equipado para todas las técnicas.',
+        description: 'Ubicación central en Macul. Espacio acogedor y equipado para todas las técnicas.',
         color: 'blue',
     },
     {
