@@ -179,26 +179,16 @@ export default function Gallery() {
                             >
                                 <div
                                     onClick={() => handleItemClick(item.category)}
-                                    className={`relative group rounded-2xl md:rounded-3xl overflow-hidden h-full w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 ${item.imagePlaceholderColor} cursor-pointer group`}
+                                    className={`relative group rounded-2xl md:rounded-3xl overflow-hidden h-full w-full border border-gray-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-md transition-all duration-300 ${item.imagePlaceholderColor} cursor-pointer group`}
                                 >
-                                    {/* Layer 1: Blurred Background */}
-                                    <div className="absolute inset-0 scale-110">
-                                        <Image 
-                                            src={item.image} 
-                                            alt="" 
-                                            fill 
-                                            className="object-cover blur-xl opacity-40 grayscale-[20%]" 
-                                        />
-                                    </div>
-
-                                    {/* Layer 2: Main "Full" Image (object-contain ensures NO cropping) */}
+                                    {/* Main "Full" Image (object-contain ensures NO cropping) */}
                                     <div className="absolute inset-1.5 flex items-center justify-center">
                                         <Image 
                                             src={item.image} 
                                             alt={item.title} 
                                             fill 
                                             sizes="(max-width: 768px) 70vw, 260px"
-                                            className="object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-105" 
+                                            className="object-contain transition-transform duration-700 group-hover:scale-105" 
                                             loading={index < 8 ? "eager" : "lazy"}
                                         />
                                     </div>

@@ -194,9 +194,9 @@ const generateGalleryItems = (category: string, folder: string, count: number, p
     }));
 };
 
-const manicureColors = ['from-brand-pink to-rose-400', 'from-pink-300 to-brand-pink', 'from-rose-400 to-pink-500'];
-const peluqueriaColors = ['from-brand-blue to-purple-500', 'from-sky-400 to-brand-blue', 'from-indigo-400 to-purple-600'];
-const eventosColors = ['from-brand-yellow to-orange-400', 'from-orange-300 to-amber-500'];
+const manicureColors = ['bg-gray-50', 'bg-[#FAFAFB]', 'bg-slate-50'];
+const peluqueriaColors = ['bg-[#F9FAFB]', 'bg-gray-50', 'bg-slate-50'];
+const eventosColors = ['bg-white', 'bg-gray-50'];
 
 const arrManicure = generateGalleryItems('Manicure', 'manicure', 16, manicureColors);
 const arrPeluqueria = generateGalleryItems('Peluquería', 'peluqueria', 8, peluqueriaColors);
