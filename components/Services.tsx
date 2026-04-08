@@ -91,7 +91,7 @@ export default function Services() {
                     </p>
                     <button 
                         onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('¡Hola GM! 👋 Quisiera ver tu catálogo completo de servicios por favor.')}`, '_blank')}
-                        className="btn-secondary px-8 py-3"
+                        className="btn-secondary px-8 py-4"
                     >
                         Ver Catálogo Completo
                     </button>

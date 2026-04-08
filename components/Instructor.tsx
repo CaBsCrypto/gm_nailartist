@@ -45,7 +45,7 @@ export default function Instructor() {
 
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white font-heading font-black rounded-2xl shadow-[0_10px_25px_-5px_rgba(180,130,50,0.3)] transition-all hover:-translate-y-1 flex items-center gap-2 active:scale-95"
+                            className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white font-heading font-black rounded-full shadow-[0_10px_25px_-5px_rgba(180,130,50,0.3)] hover:scale-[1.03] transition-all flex items-center gap-2 active:scale-95"
                         >
                             📅 Agenda tu sesión
                         </button>

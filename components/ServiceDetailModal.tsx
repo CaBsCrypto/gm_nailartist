@@ -157,13 +157,13 @@ export default function ServiceDetailModal({ isOpen, onClose, service, onBooking
                         </div>
                     )}
 
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 pt-4">
                         <button 
                             onClick={() => {
                                 onBooking(service.id);
                                 onClose();
                             }}
-                            className="btn-primary flex-1 py-4 text-lg justify-center shadow-amber-900/10"
+                            className="btn-primary flex-1 py-4 text-base sm:text-lg justify-center shadow-lg"
                         >
                             <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -172,7 +172,7 @@ export default function ServiceDetailModal({ isOpen, onClose, service, onBooking
                         </button>
                         <button 
                             onClick={onClose}
-                            className="btn-secondary py-4 text-lg justify-center sm:w-1/3"
+                            className="btn-ghost py-4 text-base sm:text-lg justify-center sm:w-1/3"
                         >
                             Cerrar
                         </button>
