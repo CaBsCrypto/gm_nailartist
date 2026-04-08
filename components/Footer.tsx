@@ -17,14 +17,14 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <a href="#" className="font-heading font-black text-3xl text-gray-900 tracking-tight block mb-4 flex items-center gap-1">
                             <span className="text-brand-blue">gm</span>
-                            <span>_nailartist</span>
+                            <span>.nailartist</span>
                         </a>
                         <p className="font-body text-gray-600 max-w-sm mb-6">
                             "Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Las Torres 📍 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽"
                         </p>
                         <div className="flex gap-4">
                             <a
-                                href="https://instagram.com/gm_nailartist"
+                                href="https://instagram.com/gm.nailartist"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 hover:bg-amber-500 hover:text-white transition-colors shadow-sm"
@@ -75,7 +75,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-sm font-body text-gray-400">
-                    <p>© {currentYear} gm_nailartist. Todos los derechos reservados.</p>
+                    <p>© {currentYear} gm.nailartist. Todos los derechos reservados.</p>
                     <p className="mt-2 md:mt-0 flex items-center gap-1">
                         Hecho con <span className="text-amber-500">♥</span> en Santiago, Chile
                     </p>

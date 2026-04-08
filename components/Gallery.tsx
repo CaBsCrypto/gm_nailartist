@@ -161,7 +161,7 @@ export default function Gallery() {
                         className={`
                             grid gap-4 sm:gap-6 pb-8 transition-all select-none
                             grid-rows-2 grid-flow-col overflow-x-auto snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0
-                            md:grid-rows-none md:grid-flow-row md:grid-cols-3 lg:grid-cols-4 md:overflow-visible
+                            md:overflow-x-auto
                             ${isDragging ? 'cursor-grabbing' : 'cursor-grab md:cursor-default'}
                         `}
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -175,7 +175,7 @@ export default function Gallery() {
                                 key={item.id} 
                                 delay={(index % 4) * 100} 
                                 direction="up" 
-                                className="w-[70vw] sm:w-[220px] md:w-auto aspect-square snap-center"
+                                className="w-[70vw] sm:w-[300px] md:w-[320px] lg:w-[350px] aspect-square snap-center"
                             >
                                 <div
                                     onClick={() => handleItemClick(item.category)}
