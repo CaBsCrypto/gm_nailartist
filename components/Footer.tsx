@@ -20,7 +20,7 @@ export default function Footer() {
                             <span>.nailartist</span>
                         </a>
                         <p className="font-body text-gray-600 max-w-sm mb-6">
-                            "Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Las Torres 📍 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽"
+                            Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Las Torres 📍 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽
                         </p>
                         <div className="flex gap-4">
                             <a
