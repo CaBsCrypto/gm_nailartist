@@ -22,21 +22,21 @@ export default function CTASection() {
                     No dejes para mañana las uñas que puedes lucir hoy. Reserva tu espacio y vive la experiencia integral.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-10">
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="w-full sm:w-auto btn-primary text-lg"
+                        className="w-full sm:w-auto btn-primary px-10 py-5 text-xl"
                     >
-                        📅 Agenda tu hora
+                        <span className="text-2xl mr-2">📅</span> Agenda tu hora
                     </button>
 
                     <a
                         href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola!%20Tengo%20una%20consulta%20rápida%20antes%20de%20agendar...`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full sm:w-auto btn-whatsapp text-lg"
+                        className="w-full sm:w-auto btn-whatsapp px-10 py-5 text-xl"
                     >
-                        💬 Escríbenos directo
+                        <span className="text-2xl mr-2">💬</span> Escríbenos directo
                     </a>
                 </div>
             </div>

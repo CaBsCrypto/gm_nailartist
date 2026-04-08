@@ -112,7 +112,7 @@ export default function Gallery() {
                             <button
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
-                                className={`px-6 py-2 rounded-full font-body font-bold text-sm transition-all ${activeFilter === filter
+                                className={`px-7 py-3 rounded-full font-body font-bold text-sm transition-all ${activeFilter === filter
                                     ? 'bg-brand-blue text-white shadow-md'
                                     : 'bg-white border border-gray-200 text-gray-600 hover:border-brand-blue/50 hover:text-brand-blue'
                                     }`}

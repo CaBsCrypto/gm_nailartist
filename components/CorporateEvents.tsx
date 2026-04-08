@@ -33,11 +33,11 @@ export default function CorporateEvents() {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-8 py-4 font-heading font-bold text-white bg-gray-900 rounded-full transition-all hover:bg-black hover:-translate-y-1 hover:shadow-xl active:translate-y-0 text-lg gap-3"
+                            className="btn-primary inline-flex px-10 py-5 text-xl mt-4"
                         >
-                            Cotizar Evento
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            <span>Cotizar Evento</span>
+                            <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
                     </div>
