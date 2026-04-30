@@ -20,7 +20,7 @@ export default function Footer() {
                             <span>.nailartist</span>
                         </a>
                         <p className="font-body text-gray-600 max-w-sm mb-6">
-                            Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Las Torres 📍 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽
+                            Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽
                         </p>
                         <div className="flex gap-4">
                             <a
@@ -55,19 +55,18 @@ export default function Footer() {
                             <li><a href="#servicios" className="text-gray-600 hover:text-amber-600 transition-colors">Servicios</a></li>
                             <li><a href="#galeria" className="text-gray-600 hover:text-amber-600 transition-colors">Galería</a></li>
                             <li><a href="#instructora" className="text-gray-600 hover:text-amber-600 transition-colors">Instructora</a></li>
-                            <li><button onClick={() => setIsLocationsOpen(true)} className="text-gray-600 hover:text-amber-600 transition-colors">Sedes</button></li>
+                            <li><button onClick={() => setIsLocationsOpen(true)} className="text-gray-600 hover:text-amber-600 transition-colors">Sede</button></li>
                         </ul>
                     </div>
 
                     {/* Contacto */}
                     <div>
-                        <h4 className="font-heading font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm">Sedes</h4>
+                        <h4 className="font-heading font-bold text-gray-900 mb-4 uppercase tracking-wider text-sm">Sede</h4>
                         <ul className="space-y-3 font-body">
-                            <li className="text-gray-600">📍 Metro Las Torres</li>
                             <li className="text-gray-600">📍 Metro Ñuñoa / Chile España</li>
                             <li>
                                 <button onClick={() => setIsLocationsOpen(true)} className="text-brand-pink text-xs font-bold uppercase tracking-widest mt-2 hover:underline">
-                                    Ver Detalles de Sedes →
+                                    Ver Detalles de Sede →
                                 </button>
                             </li>
                         </ul>

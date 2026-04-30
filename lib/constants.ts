@@ -13,7 +13,6 @@ export const SERVICES: Service[] = [
         color: 'pink',
         subServices: [
             { name: 'Solo limpieza', price: '10.000', numericPrice: 10000, duration: '30 minutos' },
-            { name: 'Manicure hombre', price: '10.000', numericPrice: 10000, duration: '35 minutos' },
             { name: 'Limpieza con endurecedor', price: '11.000', numericPrice: 11000, duration: '35 minutos' },
             { name: 'Esmaltado permanente 1 color', price: '14.000', numericPrice: 14000, duration: '1 hora' },
             { name: 'Esmaltado permanente 3 colores max', price: '16.000', numericPrice: 16000, duration: '1 hora 15 minutos' },
@@ -26,6 +25,7 @@ export const SERVICES: Service[] = [
             { name: 'Agregar baño de polygel', price: '7.000', numericPrice: 7000, duration: '20 minutos', isAddon: true },
             { name: 'Agregar baño de fortalecedor', price: '7.000', numericPrice: 7000, duration: '20 minutos', isAddon: true },
             { name: 'Parche de gel', price: '2.500', numericPrice: 2500, duration: '15 minutos', isAddon: true },
+            { name: 'Manicure hombre', price: '10.000', numericPrice: 10000, duration: '35 minutos' },
         ]
     },
     {
@@ -86,6 +86,21 @@ export const SERVICES: Service[] = [
         ]
     },
     {
+        id: 'category-colorimetria',
+        name: 'Colorimetría',
+        description: 'Asesoría de color y técnicas avanzadas para tu cabello.',
+        price: 'A consultar',
+        numericPrice: 0,
+        icon: '🎨',
+        color: 'blue',
+        subServices: [
+            { name: 'Asesoría de color personalizada', price: 'A consultar', numericPrice: 0, duration: '45 minutos' },
+            { name: 'Colorimetría completa (Tintura)', price: 'A consultar', numericPrice: 0, duration: '2-3 horas' },
+            { name: 'Técnicas de iluminación / Balayage', price: 'A consultar', numericPrice: 0, duration: '4+ horas' },
+            { name: 'Retoque de raíz', price: 'A consultar', numericPrice: 0, duration: '1 hora 30 minutos' },
+        ]
+    },
+    {
         id: 'category-otros',
         name: 'Otros Servicios',
         description: 'Boutique, peluquería y estética integral.',
@@ -141,11 +156,11 @@ export const FEATURED_SERVICES = [
         color: 'purple'
     },
     {
-        id: 'feat-masajes',
-        name: 'Sesión de Masajes',
-        description: 'Bienestar y relajación profunda para desconectarte del estrés diario.',
-        price: 'Cotizar',
-        icon: '🕯️',
+        id: 'feat-color',
+        name: 'Asesoría de Color',
+        description: 'Encuentra los tonos que iluminan tu rostro con una asesoría personalizada.',
+        price: 'A consultar',
+        icon: '🎨',
         color: 'blue'
     },
     {
@@ -159,13 +174,6 @@ export const FEATURED_SERVICES = [
 ];
 
 export const LOCATIONS: Location[] = [
-    {
-        id: 'macul',
-        name: 'Sede Macul',
-        metro: '📍 Metro Las Torres',
-        description: 'Ubicación central en Macul. Espacio acogedor y equipado para todas las técnicas.',
-        color: 'blue',
-    },
     {
         id: 'nunoa',
         name: 'Sede Ñuñoa',
@@ -225,8 +233,13 @@ export const buildWhatsAppLink = (nombre: string, categoriaName: string, subServ
         ubicacionTexto = `para un *evento corporativo/clase* en *${localOComuna}*`;
     }
 
-    const montoPago = tipoPago === 'abono' ? (precioBase * 0.5) : precioBase;
-    const intencionPago = tipoPago === 'abono' ? `abonar el 50% ($${montoPago.toLocaleString('es-CL')}) para asegurar la reserva` : `pagar el 100% ($${montoPago.toLocaleString('es-CL')}) por adelantado`;
+    let intencionPago = '';
+    if (precioBase > 0) {
+        const montoPago = tipoPago === 'abono' ? (precioBase * 0.5) : precioBase;
+        intencionPago = tipoPago === 'abono' ? `abonar el 50% ($${montoPago.toLocaleString('es-CL')}) para asegurar la reserva` : `pagar el 100% ($${montoPago.toLocaleString('es-CL')}) por adelantado`;
+    } else {
+        intencionPago = `consultar por los valores y disponibilidad`;
+    }
 
     const subServicioTexto = subServicioName ? `*${subServicioName}*` : `*${categoriaName}*`;
 

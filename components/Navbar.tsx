@@ -23,7 +23,7 @@ export default function Navbar() {
         { name: 'Galería', href: '#galeria' },
         { name: 'Instructora', href: '#instructora' },
         { name: 'Eventos', href: '#eventos' },
-        { name: 'Sedes', action: () => setIsLocationsOpen(true) },
+        { name: 'Sede', action: () => setIsLocationsOpen(true) },
     ];
 
     return (

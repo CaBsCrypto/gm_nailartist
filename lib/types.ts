@@ -1,6 +1,5 @@
 export interface BookingFormData {
     nombre: string;
-    whatsapp: string;
     servicio: string; // Categoría ID
     subServicio: string; // Nombre del tratamiento específico
     modalidad: 'estudio' | 'domicilio' | '';

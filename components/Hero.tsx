@@ -183,10 +183,10 @@ export default function Hero() {
                                     </div>
                                 </div>
 
-                                {/* Otros */}
+                                {/* Colorimetría */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[5])}
-                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.orange} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.blue} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
                                 >
                                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
                                         <span className="text-3xl mb-2">{SERVICES[5].icon}</span>

@@ -19,10 +19,30 @@ const lato = Lato({
 export const metadata: Metadata = {
     metadataBase: new URL('https://gmnailartist.cl'),
     title: 'GM NailArtist — Nail Art & Belleza Integral Cruelty-Free | Santiago',
-    description: 'GM Belleza & Boutique. Nail art profesional, manicure, pedicure y cursos de uñas en Santiago. Instructora certificada, 100% Cruelty-Free. Locales en Metro Las Torres y Metro Ñuñoa. ¡Agenda tu hora online!',
+    description: 'GM Belleza & Boutique. Nail art profesional, manicure, pedicure y cursos de uñas en Santiago. Instructora certificada, 100% Cruelty-Free. Sede en Metro Ñuñoa / Chile España. ¡Agenda tu hora online!',
+    keywords: ['nail art', 'manicure', 'pedicure', 'santiago', 'cruelty free', 'cursos de uñas', 'ñuñoa', 'eventos belleza', 'uñas acrílicas', 'esmaltado permanente', 'belleza integral', 'colorimetría', 'asesoría de imagen'],
+    authors: [{ name: 'GM NailArtist' }],
+    creator: 'GM NailArtist',
+    publisher: 'GM NailArtist',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
     openGraph: {
         title: 'GM NailArtist — Nail Art & Belleza Integral',
-        description: 'GM Belleza & Boutique. Nail art profesional y belleza integral en Santiago.',
+        description: 'GM Belleza & Boutique. Nail art profesional, esmaltado permanente y belleza integral en Santiago.',
         url: 'https://gmnailartist.cl',
         siteName: 'GM NailArtist',
         images: [
@@ -35,6 +55,12 @@ export const metadata: Metadata = {
         ],
         locale: 'es_CL',
         type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'GM NailArtist — Nail Art & Belleza Integral',
+        description: 'GM Belleza & Boutique. Nail art profesional y belleza integral en Santiago.',
+        images: ['/images/og-image.jpg'],
     },
 };
 
@@ -63,7 +89,28 @@ export default function RootLayout({
                                 addressLocality: "Santiago",
                                 addressRegion: "RM",
                                 addressCountry: "CL"
-                            }
+                            },
+                            areaServed: [
+                                {
+                                    "@type": "City",
+                                    name: "Ñuñoa"
+                                },
+                                {
+                                    "@type": "City",
+                                    name: "Santiago"
+                                }
+                            ],
+                            openingHoursSpecification: [
+                                {
+                                    "@type": "OpeningHoursSpecification",
+                                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                                    opens: "09:00",
+                                    closes: "20:00"
+                                }
+                            ],
+                            sameAs: [
+                                "https://www.instagram.com/gmnailartist"
+                            ]
                         })
                     }}
                 />

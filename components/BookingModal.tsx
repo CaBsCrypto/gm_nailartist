@@ -14,7 +14,6 @@ interface BookingModalProps {
 export default function BookingModal({ isOpen, onClose, initialServiceId, initialSubServiceName }: BookingModalProps) {
     const [formData, setFormData] = useState<BookingFormData>({
         nombre: '',
-        whatsapp: '',
         servicio: initialServiceId || '',
         subServicio: initialSubServiceName || '',
         modalidad: '',
@@ -55,7 +54,12 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
         setIsSubmitting(true);
 
         // Validate fields based on modality
-        if (!formData.nombre || !formData.whatsapp || !formData.servicio || !formData.subServicio || !formData.modalidad || !formData.local || !formData.fecha || !formData.hora || !formData.tipo_pago) {
+        const selectedCategory = SERVICES.find((s) => s.id === formData.servicio);
+        const selectedSubService = selectedCategory?.subServices?.find((sub) => sub.name === formData.subServicio);
+        const precioTotal = selectedSubService?.numericPrice || 0;
+
+        // Validate fields based on modality
+        if (!formData.nombre || !formData.servicio || !formData.subServicio || !formData.modalidad || !formData.local || !formData.fecha || !formData.hora || (!formData.tipo_pago && precioTotal > 0)) {
             alert('Por favor, completa todos los campos requeridos.');
             setIsSubmitting(false);
             return;
@@ -67,19 +71,15 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
             localName = LOCATIONS.find((l) => l.id === formData.local)?.name || formData.local;
         }
 
-        const selectedCategory = SERVICES.find((s) => s.id === formData.servicio);
-        const selectedSubService = selectedCategory?.subServices?.find((sub) => sub.name === formData.subServicio);
-        
         const categoriaName = selectedCategory?.name || formData.servicio;
         const subServicioName = formData.subServicio;
-        const precioTotal = selectedSubService?.numericPrice || 0;
 
         const url = buildWhatsAppLink(
             formData.nombre,
             categoriaName,
             subServicioName,
             precioTotal,
-            formData.tipo_pago,
+            formData.tipo_pago || 'consulta',
             formData.modalidad,
             localName,
             formData.fecha,
@@ -97,7 +97,6 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
             // Reset form
             setFormData({
                 nombre: '',
-                whatsapp: '',
                 servicio: '',
                 subServicio: '',
                 modalidad: '',
@@ -148,18 +147,6 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                 />
                             </div>
 
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1">WhatsApp *</label>
-                                <input
-                                    type="tel"
-                                    name="whatsapp"
-                                    required
-                                    value={formData.whatsapp}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all text-gray-900 bg-white"
-                                    placeholder="+56 9 1234 5678"
-                                />
-                            </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
@@ -212,9 +199,12 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                     required
                                     value={formData.modalidad}
                                     onChange={(e) => {
-                                        handleChange(e);
-                                        // Reset local/comuna when modality changes
-                                        setFormData(prev => ({ ...prev, local: '' }));
+                                        const val = e.target.value as 'estudio' | 'domicilio' | '';
+                                        setFormData(prev => ({ 
+                                            ...prev, 
+                                            modalidad: val,
+                                            local: val === 'estudio' && LOCATIONS.length === 1 ? LOCATIONS[0].id : '' 
+                                        }));
                                     }}
                                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all bg-white text-gray-900"
                                 >
@@ -227,20 +217,26 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                             {formData.modalidad === 'estudio' && (
                                 <div className="animate-fade-in">
                                     <label className="block text-sm font-bold text-gray-700 mb-1">Sede *</label>
-                                    <select
-                                        name="local"
-                                        required
-                                        value={formData.local}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all bg-white text-gray-900"
-                                    >
-                                        <option value="" disabled>Selecciona el estudio...</option>
-                                        {LOCATIONS.map((l) => (
-                                            <option key={l.id} value={l.id}>
-                                                {l.name}
-                                            </option>
-                                        ))}
-                                    </select>
+                                    {LOCATIONS.length > 1 ? (
+                                        <select
+                                            name="local"
+                                            required
+                                            value={formData.local}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all bg-white text-gray-900"
+                                        >
+                                            <option value="" disabled>Selecciona el estudio...</option>
+                                            {LOCATIONS.map((l) => (
+                                                <option key={l.id} value={l.id}>
+                                                    {l.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    ) : (
+                                        <div className="w-full px-4 py-3 rounded-xl border border-amber-100 bg-amber-50/30 text-gray-900 font-medium flex items-center gap-2">
+                                            <span className="text-amber-600">📍</span> {LOCATIONS[0].name} <span className="text-gray-400 text-sm font-normal">— {LOCATIONS[0].metro}</span>
+                                        </div>
+                                    )}
                                 </div>
                             )}
 
@@ -277,7 +273,7 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-1">Hora sugerida *</label>
+                                    <label className="block text-sm font-bold text-gray-700 mb-1">Hora ideal? (Sujeta a confirmación) *</label>
                                     <select
                                         name="hora"
                                         required
@@ -285,7 +281,7 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none transition-all bg-white text-gray-900"
                                     >
-                                        <option value="" disabled>Hora...</option>
+                                        <option value="" disabled>Selecciona...</option>
                                         {TIME_SLOTS.map((t) => (
                                             <option key={t} value={t}>{t}</option>
                                         ))}
@@ -293,7 +289,7 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
                                 </div>
                             </div>
 
-                            {formData.subServicio && (
+                            {formData.subServicio && (SERVICES.find(s => s.id === formData.servicio)?.subServices?.find(sub => sub.name === formData.subServicio)?.numericPrice || 0) > 0 && (
                                 <div className="p-5 bg-amber-50/50 rounded-2xl border border-amber-100 animate-slide-up space-y-3">
                                     <label className="block text-sm font-bold text-gray-700 mb-2">Forma de Pago para Asegurar Reserva *</label>
 
