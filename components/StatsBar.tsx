@@ -4,7 +4,7 @@ export default function StatsBar() {
     const stats = [
         { label: 'Clientas', value: '+300' },
         { label: 'Diseños Únicos', value: '100+' },
-        { label: 'Rating Promedio', value: '5.0 ⭐' },
+        { label: 'Excelencia en Servicio', value: '5.0 ⭐' },
         { label: 'Años de Experiencia', value: '8+' },
     ];
 

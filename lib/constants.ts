@@ -155,14 +155,7 @@ export const FEATURED_SERVICES = [
         icon: '💇‍♀️',
         color: 'purple'
     },
-    {
-        id: 'feat-color',
-        name: 'Asesoría de Color',
-        description: 'Encuentra los tonos que iluminan tu rostro con una asesoría personalizada.',
-        price: 'A consultar',
-        icon: '🎨',
-        color: 'blue'
-    },
+
     {
         id: 'feat-cursos',
         name: 'Cursos & Capacitación',
