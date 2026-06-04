@@ -95,7 +95,7 @@ export default function Hero() {
                         {/* Interactive Hint */}
                         <div className="text-center mb-4 pointer-events-none">
                             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-gray-500 border border-gray-100 shadow-sm uppercase tracking-widest animate-pulse">
-                                <span>✨</span> Haz clic para ver el catálogo
+                                <span>✨</span> Haz clic en las fotos para ver los detalles
                             </span>
                         </div>
 
