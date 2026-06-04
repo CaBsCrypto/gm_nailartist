@@ -96,7 +96,7 @@ export default function Services() {
 
                 <div className="mt-16 text-center">
                     <p className="text-gray-500 font-body italic mb-6">
-                        ¿No encuentras lo que buscas? Revisa nuestro catálogo completo o consúltame.
+                        Revisa más diseños en Instagram
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button 
