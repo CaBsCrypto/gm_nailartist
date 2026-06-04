@@ -92,7 +92,7 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="absolute -right-4 bottom-10 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 shadow-xl" style={{ animationDelay: '1.5s' }}>
+                        <div className="absolute -right-4 -bottom-8 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 shadow-xl" style={{ animationDelay: '1.5s' }}>
                             <p className="font-body font-bold text-brand-green flex items-center gap-2">
                                 <span>🐇</span> 100% Cruelty-Free
                             </p>
