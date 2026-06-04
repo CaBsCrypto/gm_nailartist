@@ -117,7 +117,7 @@ export default function Hero() {
                                         <span className="text-3xl mb-2">{SERVICES[0].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
+                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-3 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[0].name}
                                         </span>
@@ -139,7 +139,7 @@ export default function Hero() {
                                         <span className="text-3xl mb-2">{SERVICES[1].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
+                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-3 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[1].name}
                                         </span>
@@ -163,7 +163,7 @@ export default function Hero() {
                                         <span className="text-3xl mb-2">{SERVICES[2].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
+                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-3 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             Retiro
                                         </span>
@@ -185,7 +185,7 @@ export default function Hero() {
                                         <span className="text-3xl mb-2">{SERVICES[4].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
+                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-3 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[4].name}
                                         </span>
