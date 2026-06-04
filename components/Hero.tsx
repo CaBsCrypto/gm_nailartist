@@ -188,6 +188,8 @@ export default function Hero() {
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[4].name}
                                         </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
