@@ -64,8 +64,8 @@ const FAQS = [
         answer: 'Llevamos todo el equipo necesario a la comodidad de tu hogar. El costo del servicio incluye un recargo por movilización dependiendo de tu comuna.',
     },
     {
-        question: '¿Tienen estacionamiento en sus sucursales?',
-        answer: 'Sí, tanto en la sede de Ñuñoa como en Macul contamos con espacios de estacionamiento para nuestras clientas o zonas seguras muy cercanas.',
+        question: '¿Tienen estacionamiento en su sede?',
+        answer: 'Sí, en la sede de Ñuñoa contamos con espacios de estacionamiento para nuestras clientas o zonas seguras muy cercanas.',
     },
     {
         question: '¿Qué pasa si necesito reagendar mi cita?',

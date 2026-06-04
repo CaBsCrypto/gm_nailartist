@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
         icon: '🛍️',
         color: 'orange',
         subServices: [
-            { name: 'Alisado bioplastica con laser fotónico', price: 'desde 30.000', numericPrice: 30000, duration: '3 horas', note: 'Atendido por Gabi / Carola' },
+            { name: 'Alisado bioplastica con laser fotónico', price: 'desde 25.000', numericPrice: 25000, duration: '3 horas', note: 'Atendido por Gabi / Carola' },
             { name: 'Botox capilar con NANO-BTX de richee', price: 'desde 25.000', numericPrice: 25000, duration: '3 horas', note: 'Atendido por Gabi / Carola' },
             { name: 'Corte de cabello (incluye lavado y peinado)', price: '16.000', numericPrice: 16000, duration: '1 hora', note: 'Atendido por Carola' },
             { name: 'Lavado de cabello (incluye peinado)', price: '12.000', numericPrice: 12000, duration: '1 hora', note: 'Atendido por Carola' },
@@ -143,16 +143,16 @@ export const FEATURED_SERVICES = [
         id: 'feat-botox',
         name: 'Botox Capilar Nano-BTX Richee',
         description: 'Reconstrucción profunda y brillo tipo espejo para tu cabello.',
-        price: '25.000',
+        price: 'desde 25.000',
         icon: '🧪',
         color: 'orange'
     },
     {
-        id: 'feat-combo-pelu',
-        name: 'Masaje + Corte + Peinado',
-        description: 'Renovación completa: hidratación, corte profesional y acabado perfecto.',
-        price: '26.000',
-        icon: '✂️',
+        id: 'feat-alisado',
+        name: 'Alisado Bioplástica',
+        description: 'Alisado profesional con láser fotónico para un liso perfecto, sedoso y con brillo espejo.',
+        price: 'desde 25.000',
+        icon: '💇‍♀️',
         color: 'purple'
     },
     {

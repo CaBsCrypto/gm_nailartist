@@ -68,9 +68,18 @@ export default function Services() {
                                     </p>
                                     <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100/50">
                                         <div className="flex flex-col">
-                                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Inversión</span>
+                                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Valor</span>
                                             <span className={`text-2xl font-heading font-black ${style.text}`}>
-                                                {service.price.startsWith('desde') || service.price === 'Cotizar' ? '' : '$'}{service.price}
+                                                {service.price.startsWith('desde') ? (
+                                                    <>
+                                                        <span className="text-sm font-bold lowercase mr-1">desde</span>
+                                                        ${service.price.replace('desde ', '')}
+                                                    </>
+                                                ) : service.price === 'Cotizar' || service.price === 'A consultar' || service.price === 'Ver más' ? (
+                                                    service.price
+                                                ) : (
+                                                    `$${service.price}`
+                                                )}
                                             </span>
                                         </div>
                                         <div className="flex flex-col items-end">

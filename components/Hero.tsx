@@ -99,8 +99,8 @@ export default function Hero() {
                         </div>
 
                         {/* Mosaic Grid */}
-                        <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0 lg:ml-auto">
-                            <div className="space-y-3 sm:gap-4 pt-12">
+                        <div className="grid grid-cols-2 gap-2.5 sm:gap-3 max-w-[336px] mx-auto lg:mx-0 lg:ml-auto">
+                            <div className="space-y-2.5 sm:gap-3 pt-8">
                                 {/* Manicure */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[0])}
@@ -150,7 +150,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="space-y-3 sm:gap-4">
+                            <div className="space-y-2.5 sm:gap-3">
                                 {/* Clases */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[3])}

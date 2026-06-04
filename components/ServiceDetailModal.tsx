@@ -151,8 +151,19 @@ export default function ServiceDetailModal({ isOpen, onClose, service, onBooking
                                 <p className="text-gray-900 font-bold">Variable</p>
                             </div>
                             <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                                <p className="text-xs font-bold text-gray-400 uppercase mb-1">Precio</p>
-                                <p className="text-gray-900 font-bold font-heading text-xl">{service.price}</p>
+                                <p className="text-xs font-bold text-gray-400 uppercase mb-1">Valor</p>
+                                <p className="text-gray-900 font-bold font-heading text-xl">
+                                    {service.price.startsWith('desde') ? (
+                                        <>
+                                            <span className="text-xs font-bold lowercase mr-1">desde</span>
+                                            ${service.price.replace('desde ', '')}
+                                        </>
+                                    ) : service.price === 'Cotizar' || service.price === 'A consultar' || service.price === 'Ver más' ? (
+                                        service.price
+                                    ) : (
+                                        `$${service.price}`
+                                    )}
+                                </p>
                             </div>
                         </div>
                     )}
