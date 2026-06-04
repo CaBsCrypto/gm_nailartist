@@ -92,10 +92,11 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        <div className="absolute -right-4 -bottom-8 bg-white/90 backdrop-blur glass-card px-4 py-3 rounded-2xl animate-float z-20 shadow-xl" style={{ animationDelay: '1.5s' }}>
-                            <p className="font-body font-bold text-brand-green flex items-center gap-2">
-                                <span>🐇</span> 100% Cruelty-Free
-                            </p>
+                        {/* Interactive Hint */}
+                        <div className="text-center mb-4 pointer-events-none">
+                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-gray-500 border border-gray-100 shadow-sm uppercase tracking-widest animate-pulse">
+                                <span>✨</span> Haz clic para ver el catálogo
+                            </span>
                         </div>
 
                         {/* Mosaic Grid */}
@@ -193,12 +194,6 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        {/* Interactive Hint */}
-                        <div className="text-center mt-5 pointer-events-none">
-                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-gray-500 border border-gray-100 shadow-sm uppercase tracking-widest animate-pulse">
-                                <span>✨</span> Haz clic para ver el catálogo
-                            </span>
-                        </div>
                     </FadeIn>
                 </div>
             </div>
