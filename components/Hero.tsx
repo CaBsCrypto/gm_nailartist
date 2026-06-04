@@ -188,9 +188,14 @@ export default function Hero() {
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[4].name}
                                         </span>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+
+                        {/* Interactive Hint */}
+                        <div className="text-center mt-5 pointer-events-none">
+                            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-gray-500 border border-gray-100 shadow-sm uppercase tracking-widest animate-pulse">
+                                <span>✨</span> Haz clic para ver el catálogo
+                            </span>
                         </div>
                     </FadeIn>
                 </div>
