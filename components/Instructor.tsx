@@ -36,10 +36,10 @@ export default function Instructor() {
 
                         <div className="space-y-6 text-gray-600 font-body text-lg mb-10">
                             <p>
-                                Soy <strong className="text-gray-900">GM NailArtist</strong>, instructora certificada y apasionada por la belleza integral. Mi filosofía se basa en realzar tu estilo cuidando la salud de tus uñas y respetando a los animales.
+                                <strong className="text-gray-900">GM NailArtist</strong> es un centro de belleza integral liderado por profesionales certificadas y apasionadas. Su filosofía se basa en realzar tu estilo cuidando la salud de tus uñas y respetando a los animales.
                             </p>
                             <p>
-                                Además de servicios de salón, ofrezco <strong>Capacitaciones 1 a 1 y Talleres Grupales</strong> para quienes buscan iniciar o perfeccionar su técnica. Aprenderás con atención personalizada y productos estrictamente cruelty-free.
+                                Además de servicios de salón, ofrece <strong>Capacitaciones 1 a 1 y Talleres Grupales</strong> para quienes buscan iniciar o perfeccionar su técnica. En el centro aprenderás con atención personalizada y productos estrictamente cruelty-free.
                             </p>
                         </div>
 
