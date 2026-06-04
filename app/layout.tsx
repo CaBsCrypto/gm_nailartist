@@ -62,6 +62,12 @@ export const metadata: Metadata = {
         description: 'GM Belleza & Boutique. Nail art profesional y belleza integral en Santiago.',
         images: ['/images/og-image.jpg'],
     },
+    other: {
+        'geo.position': '-33.4533;-70.6033',
+        'geo.region': 'CL-RM',
+        'geo.placename': 'Ñuñoa, Santiago, Chile',
+        'ICBM': '-33.4533, -70.6033',
+    },
 };
 
 export default function RootLayout({
@@ -82,13 +88,19 @@ export default function RootLayout({
                                 image: "https://gmbelleza.com/images/og-image.jpg",
                                 "@id": "https://gmbelleza.com",
                                 url: "https://gmbelleza.com",
-                                telephone: "+56912345678",
+                                telephone: "+56985895687",
                                 priceRange: "$$",
                                 address: {
                                     "@type": "PostalAddress",
                                     addressLocality: "Santiago",
                                     addressRegion: "RM",
-                                    addressCountry: "CL"
+                                    addressCountry: "CL",
+                                    postalCode: "7750000"
+                                },
+                                geo: {
+                                    "@type": "GeoCoordinates",
+                                    latitude: -33.4533,
+                                    longitude: -70.6033
                                 },
                                 areaServed: [
                                     {
@@ -98,6 +110,18 @@ export default function RootLayout({
                                     {
                                         "@type": "City",
                                         name: "Santiago"
+                                    },
+                                    {
+                                        "@type": "City",
+                                        name: "Providencia"
+                                    },
+                                    {
+                                        "@type": "City",
+                                        name: "Macul"
+                                    },
+                                    {
+                                        "@type": "City",
+                                        name: "La Reina"
                                     }
                                 ],
                                 openingHoursSpecification: [
