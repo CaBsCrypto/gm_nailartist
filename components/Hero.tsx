@@ -104,9 +104,15 @@ export default function Hero() {
                                 {/* Manicure */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[0])}
-                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.pink} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                    className="w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
                                 >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                    <div 
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                        style={{ backgroundImage: 'url("/images/Categorias/manicure.jfif")' }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                                    
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
                                         <span className="text-3xl mb-2">{SERVICES[0].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
@@ -120,9 +126,15 @@ export default function Hero() {
                                 {/* Pedicure */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[1])}
-                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.yellow} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                    className="w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
                                 >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                    <div 
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                        style={{ backgroundImage: 'url("/images/Categorias/pedicure.jfif")' }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
                                         <span className="text-3xl mb-2">{SERVICES[1].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
@@ -132,13 +144,21 @@ export default function Hero() {
                                         </span>
                                     </div>
                                 </div>
+                            </div>
 
+                            <div className="space-y-2.5 sm:gap-3">
                                 {/* Retiro */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[2])}
-                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.blue} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                    className="w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
                                 >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                    <div 
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                        style={{ backgroundImage: 'url("/images/Categorias/retiro.jfif")' }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
                                         <span className="text-3xl mb-2">{SERVICES[2].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
@@ -148,53 +168,25 @@ export default function Hero() {
                                         </span>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className="space-y-2.5 sm:gap-3">
-                                {/* Clases */}
-                                <div 
-                                    onClick={() => openServiceDetail(SERVICES[3])}
-                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.green} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
-                                >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
-                                        <span className="text-3xl mb-2">{SERVICES[3].icon}</span>
-                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
-                                    </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
-                                        <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
-                                            {SERVICES[3].name}
-                                        </span>
-                                    </div>
-                                </div>
 
                                 {/* Empresas */}
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[4])}
-                                    className={`w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.purple} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
+                                    className="w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
                                 >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
+                                    <div 
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                        style={{ backgroundImage: 'url("/images/Categorias/eventos_2.jpg")' }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
                                         <span className="text-3xl mb-2">{SERVICES[4].icon}</span>
                                         <span className="font-heading font-black text-xl leading-none">Ver más</span>
                                     </div>
                                     <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
                                         <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
                                             {SERVICES[4].name}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Colorimetría */}
-                                <div 
-                                    onClick={() => openServiceDetail(SERVICES[5])}
-                                    className={`w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl bg-gradient-to-br ${gradients.blue} overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2`}
-                                >
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white p-4 text-center">
-                                        <span className="text-3xl mb-2">{SERVICES[5].icon}</span>
-                                        <span className="font-heading font-black text-xl leading-none">Ver más</span>
-                                    </div>
-                                    <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center pb-8 group-hover:opacity-0 transition-opacity px-2 pointer-events-none">
-                                        <span className="bg-white/30 backdrop-blur-md px-4 py-2 rounded-full text-white text-[10px] sm:text-xs font-bold border border-white/40 uppercase tracking-[0.2em] block truncate shadow-lg">
-                                            {SERVICES[5].name}
                                         </span>
                                     </div>
                                 </div>
