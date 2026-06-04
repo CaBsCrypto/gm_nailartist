@@ -17,13 +17,13 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://gmnailartist.cl'),
-    title: 'GM NailArtist — Nail Art & Belleza Integral Cruelty-Free | Santiago',
+    metadataBase: new URL('https://gmbelleza.com'),
+    title: 'GM Belleza & Boutique — Manicure, Estética & Cuidado Integral | Santiago',
     description: 'GM Belleza & Boutique. Nail art profesional, manicure, pedicure y cursos de uñas en Santiago. Instructora certificada, 100% Cruelty-Free. Sede en Metro Ñuñoa / Chile España. ¡Agenda tu hora online!',
     keywords: ['nail art', 'manicure', 'pedicure', 'santiago', 'cruelty free', 'cursos de uñas', 'ñuñoa', 'eventos belleza', 'uñas acrílicas', 'esmaltado permanente', 'belleza integral', 'colorimetría', 'asesoría de imagen'],
-    authors: [{ name: 'GM NailArtist' }],
-    creator: 'GM NailArtist',
-    publisher: 'GM NailArtist',
+    authors: [{ name: 'GM Belleza' }],
+    creator: 'GM Belleza',
+    publisher: 'GM Belleza',
     formatDetection: {
         email: false,
         address: false,
@@ -41,16 +41,16 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'GM NailArtist — Nail Art & Belleza Integral',
+        title: 'GM Belleza & Boutique — Manicure, Estética & Cuidado Integral',
         description: 'GM Belleza & Boutique. Nail art profesional, esmaltado permanente y belleza integral en Santiago.',
-        url: 'https://gmnailartist.cl',
-        siteName: 'GM NailArtist',
+        url: 'https://gmbelleza.com',
+        siteName: 'GM Belleza',
         images: [
             {
                 url: '/images/og-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'GM NailArtist - Nail Art',
+                alt: 'GM Belleza - Nail Art & Estética',
             },
         ],
         locale: 'es_CL',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'GM NailArtist — Nail Art & Belleza Integral',
+        title: 'GM Belleza & Boutique — Manicure, Estética & Cuidado Integral',
         description: 'GM Belleza & Boutique. Nail art profesional y belleza integral en Santiago.',
         images: ['/images/og-image.jpg'],
     },
@@ -66,56 +66,56 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-}: {
-    children: React.ReactNode;
-}) {
-    return (
-        <html lang="es" className={`${poppins.variable} ${lato.variable}`}>
-            <body className="antialiased min-h-screen flex flex-col">
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "HealthAndBeautyBusiness",
-                            name: "GM NailArtist",
-                            image: "https://gmnailartist.cl/images/og-image.jpg",
-                            "@id": "https://gmnailartist.cl",
-                            url: "https://gmnailartist.cl",
-                            telephone: "+56912345678",
-                            priceRange: "$$",
-                            address: {
-                                "@type": "PostalAddress",
-                                addressLocality: "Santiago",
-                                addressRegion: "RM",
-                                addressCountry: "CL"
-                            },
-                            areaServed: [
-                                {
-                                    "@type": "City",
-                                    name: "Ñuñoa"
+    }: {
+        children: React.ReactNode;
+    }) {
+        return (
+            <html lang="es" className={`${poppins.variable} ${lato.variable}`}>
+                <body className="antialiased min-h-screen flex flex-col">
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "HealthAndBeautyBusiness",
+                                name: "GM Belleza",
+                                image: "https://gmbelleza.com/images/og-image.jpg",
+                                "@id": "https://gmbelleza.com",
+                                url: "https://gmbelleza.com",
+                                telephone: "+56912345678",
+                                priceRange: "$$",
+                                address: {
+                                    "@type": "PostalAddress",
+                                    addressLocality: "Santiago",
+                                    addressRegion: "RM",
+                                    addressCountry: "CL"
                                 },
-                                {
-                                    "@type": "City",
-                                    name: "Santiago"
-                                }
-                            ],
-                            openingHoursSpecification: [
-                                {
-                                    "@type": "OpeningHoursSpecification",
-                                    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                                    opens: "09:00",
-                                    closes: "20:00"
-                                }
-                            ],
-                            sameAs: [
-                                "https://www.instagram.com/gmnailartist"
-                            ]
-                        })
-                    }}
-                />
-                {children}
-            </body>
-        </html>
-    );
-}
+                                areaServed: [
+                                    {
+                                        "@type": "City",
+                                        name: "Ñuñoa"
+                                    },
+                                    {
+                                        "@type": "City",
+                                        name: "Santiago"
+                                    }
+                                ],
+                                openingHoursSpecification: [
+                                    {
+                                        "@type": "OpeningHoursSpecification",
+                                        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                                        opens: "09:00",
+                                        closes: "20:00"
+                                    }
+                                ],
+                                sameAs: [
+                                    "https://www.instagram.com/gm.nailartist"
+                                ]
+                            })
+                        }}
+                    />
+                    {children}
+                </body>
+            </html>
+        );
+    }

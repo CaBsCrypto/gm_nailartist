@@ -3,7 +3,7 @@ import FadeIn from './FadeIn';
 
 export default function CorporateEvents() {
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-        'Hola GM NailArtist 👋 Quisiera cotizar un evento corporativo o clase grupal (Nail Party). Me gustaría recibir más información. 🌸'
+        'Hola GM Belleza 👋 Quisiera cotizar un evento corporativo o clase grupal (Nail Party). Me gustaría recibir más información. 🌸'
     )}`;
 
     return (

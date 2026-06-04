@@ -51,7 +51,7 @@ export default function Hero() {
                         </div>
 
                         <h1 className="text-5xl lg:text-7xl font-heading font-black text-gray-900 leading-[1.1] mb-2">
-                            Eleva tu estilo con <span className="text-brand-blue block mt-2 text-[1.1em]">GM NailArtist.</span>
+                            Eleva tu estilo con <span className="text-brand-blue block mt-2 text-[1.1em]">GM Belleza.</span>
                         </h1>
                         <h2 className="text-2xl lg:text-3xl font-heading font-black text-brand-pink mb-6">
                             Belleza & Boutique

@@ -29,7 +29,7 @@ export default function BrandMarquee() {
                         >
                             <Image
                                 src={src}
-                                alt={`GM NailArtist Brand ${index + 1}`}
+                                alt={`GM Belleza Brand ${index + 1}`}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 sizes="260px"
@@ -46,7 +46,7 @@ export default function BrandMarquee() {
                         >
                             <Image
                                 src={src}
-                                alt={`GM NailArtist Brand-dup ${index + 1}`}
+                                alt={`GM Belleza Brand-dup ${index + 1}`}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 sizes="260px"
@@ -59,7 +59,7 @@ export default function BrandMarquee() {
             
             <div className="mt-8 text-center">
                 <span className="text-xs font-heading font-bold tracking-[0.2em] text-brand-pink/40 uppercase">
-                    GM NailArtist Studio • Our Vibe
+                    GM Belleza Studio • Our Vibe
                 </span>
             </div>
         </section>

@@ -17,7 +17,7 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <a href="#" className="font-heading font-black text-3xl text-gray-900 tracking-tight block mb-4 flex items-center gap-1">
                             <span className="text-brand-blue">gm</span>
-                            <span>.nailartist</span>
+                            <span>.belleza</span>
                         </a>
                         <p className="font-body text-gray-600 max-w-sm mb-6">
                             Belleza integral ✨ Instructora 👩🏻‍🏫 Metro Ñuñoa / Chile España 📍 Cruelty free 🐇 Agenda tu hora 👇🏽
@@ -74,7 +74,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-sm font-body text-gray-400">
-                    <p>© {currentYear} gm.nailartist. Todos los derechos reservados.</p>
+                    <p>© {currentYear} gm.belleza. Todos los derechos reservados.</p>
                     <p className="mt-2 md:mt-0 flex items-center gap-1">
                         Hecho con <span className="text-amber-500">♥</span> en Santiago, Chile
                     </p>

@@ -35,7 +35,7 @@ export default function Navbar() {
                 <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
                     <a href="#" className="font-heading font-black text-2xl text-gray-900 tracking-tight flex items-center gap-2">
                         <span className="text-brand-blue">GM</span>
-                        <span>NailArtist</span>
+                        <span>Belleza</span>
                     </a>
 
                     {/* Desktop Nav */}

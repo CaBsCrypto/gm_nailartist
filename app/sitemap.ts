@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
         {
-            url: 'https://gmnailartist.cl',
+            url: 'https://gmbelleza.com',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 1,
