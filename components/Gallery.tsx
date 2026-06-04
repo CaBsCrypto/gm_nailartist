@@ -103,7 +103,7 @@ export default function Gallery() {
                         Nuestra Galería
                     </h2>
                     <p className="text-lg font-body text-gray-600 max-w-2xl mx-auto mb-8">
-                        Explora nuestro trabajo. Haz clic para ver servicios.
+                        Explora nuestro trabajo real. Haz clic en cualquier foto para ver al detalle los valores y agendar.
                     </p>
 
                     {/* Filters */}
@@ -122,6 +122,13 @@ export default function Gallery() {
                         ))}
                     </div>
                 </FadeIn>
+
+                {/* Interactive Gallery Hint */}
+                <div className="text-center mb-6 pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold text-gray-500 border border-gray-100 shadow-sm uppercase tracking-widest animate-pulse">
+                        <span>✨</span> Haz clic en las fotos para ver valores
+                    </span>
+                </div>
 
                 {/* Carousel/Grid Wrapper */}
                 <div className="relative group/gallery">
