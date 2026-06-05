@@ -24,7 +24,7 @@ export default function WhatsAppFloating() {
 
     return (
         <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('¡Hola GM! 👋 Tengo una duda y me gustaría consultar contigo. 🌸')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-8 z-[9999] group flex flex-col items-center"
