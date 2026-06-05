@@ -68,6 +68,9 @@ export const metadata: Metadata = {
         'geo.placename': 'Ñuñoa, Santiago, Chile',
         'ICBM': '-33.4533, -70.6033',
     },
+    verification: {
+        google: '1M5wKfaE-StdD87cdSPNRpgJz4JpUroDlmkX7JGoUD8',
+    },
 };
 
 export default function RootLayout({
