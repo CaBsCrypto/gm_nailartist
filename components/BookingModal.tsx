@@ -90,7 +90,7 @@ export default function BookingModal({ isOpen, onClose, initialServiceId, initia
 
         // Slight delay so the user reads the success message
         setTimeout(() => {
-            window.open(url, '_blank');
+            window.location.href = url;
             setIsSubmitting(false);
             setShowSuccess(false);
             onClose();
