@@ -85,21 +85,7 @@ export const SERVICES: Service[] = [
             { name: 'Servicio de Masajes', price: 'Cotizar', numericPrice: 0, duration: 'A convenir', note: 'Pausas activas y bienestar' },
         ]
     },
-    {
-        id: 'category-colorimetria',
-        name: 'Colorimetría',
-        description: 'Asesoría de color y técnicas avanzadas para tu cabello.',
-        price: 'A consultar',
-        numericPrice: 0,
-        icon: '🎨',
-        color: 'blue',
-        subServices: [
-            { name: 'Asesoría de color personalizada', price: 'A consultar', numericPrice: 0, duration: '45 minutos' },
-            { name: 'Colorimetría completa (Tintura)', price: 'A consultar', numericPrice: 0, duration: '2-3 horas' },
-            { name: 'Técnicas de iluminación / Balayage', price: 'A consultar', numericPrice: 0, duration: '4+ horas' },
-            { name: 'Retoque de raíz', price: 'A consultar', numericPrice: 0, duration: '1 hora 30 minutos' },
-        ]
-    },
+
     {
         id: 'category-otros',
         name: 'Peluquería',

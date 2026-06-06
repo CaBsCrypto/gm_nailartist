@@ -82,7 +82,7 @@ export default function Gallery() {
 
     const handleItemClick = (category: string) => {
         let serviceIndex = 0; // Manicure por defecto
-        if (category === 'Peluquería') serviceIndex = 6; 
+        if (category === 'Peluquería') serviceIndex = 5; 
         if (category === 'Eventos') serviceIndex = 4; 
 
         setSelectedService(SERVICES[serviceIndex]);
