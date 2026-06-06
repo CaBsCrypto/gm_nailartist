@@ -106,6 +106,7 @@ export default function Hero() {
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[0])}
                                     className="w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
+                                    style={{ transform: 'translateZ(0)' }}
                                 >
                                     <div 
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -128,6 +129,7 @@ export default function Hero() {
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[1])}
                                     className="w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
+                                    style={{ transform: 'translateZ(0)' }}
                                 >
                                     <div 
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -152,6 +154,7 @@ export default function Hero() {
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[2])}
                                     className="w-full aspect-square rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
+                                    style={{ transform: 'translateZ(0)' }}
                                 >
                                     <div 
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -174,6 +177,7 @@ export default function Hero() {
                                 <div 
                                     onClick={() => openServiceDetail(SERVICES[4])}
                                     className="w-full aspect-[3/4] rounded-[30px] sm:rounded-[40px] border-4 border-white shadow-xl overflow-hidden relative group cursor-pointer transition-transform hover:-translate-y-2"
+                                    style={{ transform: 'translateZ(0)' }}
                                 >
                                     <div 
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
