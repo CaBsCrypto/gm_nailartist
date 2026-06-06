@@ -199,12 +199,6 @@ export default function Gallery() {
                                             loading={index < 8 ? "eager" : "lazy"}
                                         />
                                     </div>
-                                    
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center z-10">
-                                        <div className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100 border border-white/20">
-                                            <span className="text-lg">➔</span>
-                                        </div>
-                                    </div>
                                 </div>
                             </FadeIn>
                         ))}
