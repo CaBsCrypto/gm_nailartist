@@ -97,7 +97,14 @@ export default function ServiceDetailModal({ isOpen, onClose, service, onBooking
                                                 </div>
                                                 <div className="flex items-center gap-3">
                                                     <span className="font-heading font-black text-gray-900 text-sm sm:text-lg tracking-tight group-hover:scale-110 transition-transform">
-                                                        ${sub.price}
+                                                        {sub.price.startsWith('desde') ? (
+                                                            <>
+                                                                <span className="text-xs font-normal lowercase mr-1 text-gray-500">desde</span>
+                                                                ${sub.price.replace('desde ', '')}
+                                                            </>
+                                                        ) : (
+                                                            `$${sub.price}`
+                                                        )}
                                                     </span>
                                                     <button 
                                                         onClick={(e) => {
