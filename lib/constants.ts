@@ -102,22 +102,15 @@ export const SERVICES: Service[] = [
     },
     {
         id: 'category-otros',
-        name: 'Otros Servicios',
-        description: 'Boutique, peluquería y estética integral.',
+        name: 'Peluquería',
+        description: 'Alisados y tratamientos capilares profesionales.',
         price: 'Ver más',
         numericPrice: 0,
-        icon: '🛍️',
+        icon: '💇‍♀️',
         color: 'orange',
         subServices: [
             { name: 'Alisado bioplastica con laser fotónico', price: 'desde 25.000', numericPrice: 25000, duration: '3 horas', note: 'Atendido por Gabi / Carola' },
             { name: 'Botox capilar con NANO-BTX de richee', price: 'desde 25.000', numericPrice: 25000, duration: '3 horas', note: 'Atendido por Gabi / Carola' },
-            { name: 'Corte de cabello (incluye lavado y peinado)', price: '16.000', numericPrice: 16000, duration: '1 hora', note: 'Atendido por Carola' },
-            { name: 'Lavado de cabello (incluye peinado)', price: '12.000', numericPrice: 12000, duration: '1 hora', note: 'Atendido por Carola' },
-            { name: 'Masaje de hidratacion + peinado', price: 'desde 18.000', numericPrice: 18000, duration: '1 hora 30 minutos', note: 'Atendido por Carola' },
-            { name: 'Masaje + corte + peinado', price: '26.000', numericPrice: 26000, duration: '1 hora 30 minutos', note: 'Atendido por Carola' },
-            { name: 'Perfilado de cejas', price: '6.000', numericPrice: 6000, duration: '20 minutos' },
-            { name: 'Depilacion de bozo', price: '4.000', numericPrice: 4000, duration: '10 minutos' },
-            { name: 'Sesión de Masajes', price: 'Cotizar', numericPrice: 0, duration: 'Variable' },
         ]
     }
 ];
